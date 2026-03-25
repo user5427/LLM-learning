@@ -1,0 +1,878 @@
+{
+  "models": [
+    {
+      "client": "https://openrouter.ai/api/v1/",
+      "model": "stepfun/step-3.5-flash"
+    },
+    {
+      "client": "https://openrouter.ai/api/v1/",
+      "model": "nvidia/nemotron-3-super-120b-a12b"
+    },
+    {
+      "client": "https://openrouter.ai/api/v1/",
+      "model": "google/gemma-3-27b-it"
+    },
+    {
+      "client": "https://openrouter.ai/api/v1/",
+      "model": "openai/gpt-oss-20b"
+    },
+    {
+      "client": "https://openrouter.ai/api/v1/",
+      "model": "minimax/minimax-m2:5"
+    },
+    {
+      "client": "http://localhost:11435/v1/",
+      "model": "ministral-3:3b"
+    },
+    {
+      "client": "http://localhost:11435/v1/",
+      "model": "llama3.2:1b"
+    },
+    {
+      "client": "http://localhost:11435/v1/",
+      "model": "qwen2.5-coder:1.5b"
+    },
+    {
+      "client": "http://localhost:11435/v1/",
+      "model": "nemotron-mini:4b"
+    },
+    {
+      "client": "http://localhost:1234/v1/",
+      "model": "mistralai/ministral-3-3b"
+    },
+    {
+      "client": "http://localhost:1234/v1/",
+      "model": "liquid/lfm2.5-1.2b"
+    },
+    {
+      "client": "http://localhost:1234/v1/",
+      "model": "qwen2.5-coder-1.5b-instruct"
+    },
+    {
+      "client": "http://localhost:1234/v1/",
+      "model": "nvidia/nemotron-3-nano-4b"
+    },
+    {
+      "client": "https://openrouter.ai/api/v1/",
+      "model": "microsoft/phi-4"
+    }
+  ],
+  "tests": [
+    {
+      "test_prompt": "\nWrite a short paragraph (4\u20136 sentences) continuing the following passage. Maintain the same tone, style, and subject matter. Do not introduce unrelated topics or change the narrative voice.\nText:\n```\nThe last train left the station at midnight, carrying with it the faint smell of rain and diesel. Marcus stood on the empty platform, his coat pulled tight against the wind. He had missed it \u2014 again \u2014 and this time, he wasn't sure it mattered.\n```\n",
+      "validation_prompt": "\nYou are evaluating two model responses to a creative writing continuation task. Score each from 1\u201310.\n\nScoring rules:\n- Start both models at 10\n- Deduct 2 points if the continuation is fewer than 4 or more than 6 sentences\n- Deduct 2 points if Marcus is not present or referenced in the continuation\n- Deduct 2 points if a new named character is introduced\n- Deduct 2 points if the tone shifts (e.g. becomes humorous, action-oriented, or melodramatic)\n- Deduct 1 point if the narrative voice changes (e.g. switches to first person or second person)\n- Deduct 1 point if an unrelated topic is introduced (e.g. fantasy elements, unrelated setting)\n- Minimum score is 1\n",
+      "results": [
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "ministral-3:3b",
+          "test_result": "As the train faded into the mist-choked night, Marcus let out a sigh that didn\u2019t quite reach his throat, the cold seeping into his bones like a forgotten promise. The platform remained deserted, the lamppost\u2019s flickering glow casting long, trembling shadows across the cracked pavement. For a fleece of a moment, he allowed himself to step back, closing his eyes\u2014not just against the wind, but against the weight of every missed moment, the silent echoes of a goodbye he\u2019d never fully gotten to say. Outside, the distant howl of a train engine curled with the wind, a hollow reminder that all of this was coming to another end. He watched the distant lights disappear down the tracks, knowing he\u2019d been running long enough that the destination didn\u2019t even matter anymore.",
+          "response_time_seconds": 4.471
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "llama3.2:1b",
+          "test_result": "Marcus's eyes drifted up to the darkened buildings looming in the distance, their windows like empty eye sockets staring back at him. The train's departure had been a rare occurrence lately, even by his low standards. He had considered getting off and walking home, but something kept drawing him to this side of town. A faint glimmer of hope, or perhaps it was just disappointment \u2013 he couldn't be sure. As he turned away from the platform, he noticed the rain starting to fall in sheets, drumming against his umbrella's mesh. For a moment, the sound was almost louder than the rumble of the train, which seemed to be growing fainter by the second.",
+          "response_time_seconds": 2.46
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "qwen2.5-coder:1.5b",
+          "test_result": "Despite all his efforts to avoid the train again tomorrow, Marcus couldn't shake the feeling that it might be his last chance. As he boarded the car, he knew that no matter where he went, he would never find the courage to face the looming presence of an empty boxcar waiting to carry away the memories of the past weeks.",
+          "response_time_seconds": 2.174
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "nemotron-mini:4b",
+          "test_result": " As he watched the disappearing carriage pull away into the dark night, Marcus felt a mix of regret and indifference. Despite missing previous trains that didn't leave with such urgency or importance as this one did, his heart couldn't help but feel an unexplained sense of peace knowing all was well at home. He wished someone could explain its source; he longed for answers to questions only half asked himself.",
+          "response_time_seconds": 3.565
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "stepfun/step-3.5-flash",
+          "test_result": "The wind scoured the platform, stirring litter into lazy pirouettes and tugging at the frayed edges of Marcus\u2019s scarf. He watched the single red light of the departing train shrink into the dark, a fading ember against the blackened sky. Somewhere behind him, the station clock ticked with solemn indifference, each second a small, final judgment. He didn\u2019t move to leave, finding a vague comfort in the vast, echoing emptiness that mirrored the space inside him. Forgotten tickets crumbled in his coat pocket, their paper edges as soft and useless as his reasons for being there. For now, standing still was the only plan that made sense.",
+          "response_time_seconds": 3.868
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "test_result": "He lingered a moment longer, watching the tracks disappear into the darkness, the steel gleaming faintly under the lone lamp\u2019s glow. The wind tugged at his collar, reminding him of the countless evenings he\u2019d waited here, hoping for a different outcome. He slipped his hands into his pockets, feeling the worn edges of the ticket he never used, and wondered if the habit was more about the ritual than the destination. With a quiet sigh, Marcus turned away from the platform, letting the night swallow his footsteps as he walked toward the empty street beyond. The city slept, but his thoughts kept ticking, restless as the trains that never came for him.",
+          "response_time_seconds": 3.908
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "google/gemma-3-27b-it",
+          "test_result": "\nThe chipped porcelain of a nearby bench offered the only invitation to sit, and he accepted without protest. Each gust of wind seemed to whisper a forgotten regret, a litany of opportunities lost like scattered leaves. He\u2019d told himself for weeks he\u2019d make this one, that seeing *her* was important, essential even. But the hours had slipped away, swallowed by the comforting routine of the pub and the false promise of \u201cjust one more.\u201d Now, the platform stretched before him, a cold, grey expanse mirroring the landscape of his own disappointment.",
+          "response_time_seconds": 15.899
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "openai/gpt-oss-20b",
+          "test_result": "The platform\u2019s scarred wooden boards muffled his footsteps, each creak a quiet reminder that time in the station was measured in sighs and static. A lone fire hydrant sputtered somewhere in the dark, its hiss blending with the metallic hiss of the distant tracks still steaming from last night\u2019s departure. Marcus stared at the cracked clock above the ticket booth, its hands frozen as if respecting the night\u2019s decision. He knew every missed train had stitched a pattern of routine frustration into his days, yet this morning\u2019s silence felt too heavy to ignore. With a slow exhale, he turned and slipped into the night, trusting that the station\u2019s echo would carry him home.",
+          "response_time_seconds": 13.898
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "minimax/minimax-m2:5",
+          "test_result": "The platform lights flickered, casting a thin orange glow that barely reached the far end of the tracks. Marcus shoved his hands deeper into his coat, fingers brushing the worn edge of a ticket he\u2019d never torn. He listened to the distant hum of the city beyond the rails, the same rhythm that seemed to pulse through his own chest, steady and indifferent. The next train might arrive in an hour, or it might never come, and the thought no longer stirred panic in him. Instead, he felt a quiet acceptance settle like the cold mist around his shoulders, a surrender to the night that asked nothing more of him.",
+          "response_time_seconds": 17.685
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "microsoft/phi-4",
+          "test_result": "The streetlights cast faint yellow halos on the wet pavement, reflecting off the empty cars scattered along the silent road. Marcus leaned against the cold metal railing, staring blankly at the tracks where the train had vanished into the darkness. The rhythmic hum of distant traffic was like a stark reminder of life moving on elsewhere. With a deep, resigned breath, Marcus reached into his pocket and pulled out a crumpled note, the ink slightly smeared from being folded and unfolded far too many times. Surely, tomorrow would be different, he mused with a faint, wistful smile, as he tucked the note back away, unnoticed by the world.",
+          "response_time_seconds": 2.626
+        }
+      ],
+      "validations": [],
+      "winner": null
+    },
+    {
+      "test_prompt": "\nAnswer the following question based solely on the provided context. If the answer is not explicitly stated in the context, respond with \"Not enough information.\" Do not infer or add outside knowledge.\nContext:\n```\nThe Meridian Bridge was constructed between 1921 and 1924 using a combination of steel and reinforced concrete. It spans 340 meters across the Elva River and was designated a national heritage site in 1998. Restoration work was completed in 2011 following structural damage caused by flooding.\n```\nQuestion: When was the Meridian Bridge designated a national heritage site?\n",
+      "validation_prompt": "\nYou are evaluating two model responses to a question answering task. The correct answer is: 1998. Score each from 1\u201310.\n\nScoring rules:\n- Start both models at 10\n- Deduct 5 points if the answer does not contain \"1998\"\n- Deduct 3 points if the response includes information not present in the context (e.g. additional bridge facts, outside knowledge)\n- Deduct 2 points if the answer is longer than 2 sentences without adding relevant value\n- Minimum score is 1\n",
+      "results": [
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "ministral-3:3b",
+          "test_result": "The Meridian Bridge was designated a **national heritage site** in **1998**.",
+          "response_time_seconds": 0.455
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "llama3.2:1b",
+          "test_result": "Not enough information.",
+          "response_time_seconds": 0.224
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "qwen2.5-coder:1.5b",
+          "test_result": "The Meridian Bridge was designated a national heritage site in 1998, as per information provided in the context.",
+          "response_time_seconds": 0.324
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "nemotron-mini:4b",
+          "test_result": " 1998",
+          "response_time_seconds": 0.313
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "stepfun/step-3.5-flash",
+          "test_result": "Based on the provided context, the Meridian Bridge was designated a national heritage site in 1998.",
+          "response_time_seconds": 2.121
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "test_result": "1998",
+          "response_time_seconds": 1.063
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "google/gemma-3-27b-it",
+          "test_result": "1998.",
+          "response_time_seconds": 0.924
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "openai/gpt-oss-20b",
+          "test_result": "1998",
+          "response_time_seconds": 0.57
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "minimax/minimax-m2:5",
+          "test_result": "1998",
+          "response_time_seconds": 2.525
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "microsoft/phi-4",
+          "test_result": "The Meridian Bridge was designated a national heritage site in 1998.",
+          "response_time_seconds": 1.138
+        }
+      ],
+      "validations": [],
+      "winner": null
+    },
+    {
+      "test_prompt": "\nGenerate a JSON array of 5 fictional customer records. Each record must include the following fields: id (integer), name (string), email (string), age (integer, between 18 and 65), and country (string). Ensure the data is realistic and varied. Return only valid JSON with no additional explanation.\n",
+      "validation_prompt": "\nYou are evaluating two model responses to a JSON data generation task. Score each from 1\u201310.\n\nScoring rules:\n- Start both models at 10\n- Deduct 4 points if the output is not parseable as valid JSON\n- Deduct 1 point per missing required field across all records (fields: id, name, email, age, country) \u2014 max 5 deductions\n- Deduct 1 point per record where age is outside the 18\u201365 range \u2014 max 5 deductions\n- Deduct 1 point per record where id is not an integer \u2014 max 5 deductions\n- Deduct 1 point per record where age is not an integer \u2014 max 5 deductions\n- Deduct 2 points if all 5 records share the same country\n- Deduct 2 points if any email addresses are clearly invalid (e.g. missing @, missing domain)\n- Minimum score is 1\n",
+      "results": [
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "ministral-3:3b",
+          "test_result": "```json\n[\n    {\"id\": 1, \"name\": \"Emily Carter\", \"email\": \"emily.carter@outlook.com\", \"age\": 28, \"country\": \"United States\"},\n    {\"id\": 2, \"name\": \"Lucas Thompson\", \"email\": \"lucas.72@yahoo.co.uk\", \"age\": 34, \"country\": \"United Kingdom\"},\n    {\"id\": 3, \"name\": \"Sophia Martinez\", \"email\": \"sophia.mz18@gmail.com\", \"age\": 22, \"country\": \"Argentina\"},\n    {\"id\": 4, \"name\": \"Benjamin Lee\", \"email\": \"benjaminleedojo@proton.me\", \"age\": 45, \"country\": \"Canada\"},\n    {\"id\": 5, \"name\": \"Ava Rodriguez\", \"email\": \"ava.rodrigo89@icloud.com\", \"age\": 51, \"country\": \"Mexico\"}\n]\n```",
+          "response_time_seconds": 1.788
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "llama3.2:1b",
+          "test_result": "```\n[\n    {\n        \"id\": 1,\n        \"name\": \"John Smith\",\n        \"email\": \"john.smith@example.com\",\n        \"age\": 42,\n        \"country\": \"United States\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Emily Johnson\",\n        \"email\": \"emily.johnson@example.com\",\n        \"age\": 55,\n        \"country\": \"Canada\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Michael Davis\",\n        \"email\": \"michael.jackson@example.com\",\n        \"age\": -1, // invalid age\n        \"country\": \"United Kingdom\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Sophia Lee\",\n        \"email\": \"sophia.williams@example.com\",\n        \"age\": 32,\n        \"country\": \"Australia\"\n    }\n]\n```",
+          "response_time_seconds": 1.123
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "qwen2.5-coder:1.5b",
+          "test_result": "```json\n[\n    {\n        \"id\": 101,\n        \"name\": \"John Doe\",\n        \"email\": \"john.doe@example.com\",\n        \"age\": 25,\n        \"country\": \"United States\"\n    },\n    {\n        \"id\": 102,\n        \"name\": \"Jane Smith\",\n        \"email\": \"jane.smith@example.org\",\n        \"age\": 32,\n        \"country\": \"Canada\"\n    },\n    {\n        \"id\": 103,\n        \"name\": \"Mike Johnson\",\n        \"email\": \"mike.johnson@example.net\",\n        \"age\": 47,\n        \"country\": \"United Kingdom\"\n    },\n    {\n        \"id\": 104,\n        \"name\": \"Laura Brown\",\n        \"email\": \"laura.brown@example.com\",\n        \"age\": 29,\n        \"country\": \"Australia\"\n    },\n    {\n        \"id\": 105,\n        \"name\": \"David Davis\",\n        \"email\": \"david.davis@example.co.uk\",\n        \"age\": 60,\n        \"country\": \"Germany\"\n    }\n]\n```",
+          "response_time_seconds": 1.872
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "nemotron-mini:4b",
+          "test_result": " [\n  {\n    \"id\": 12345,\n    \"name\": \"John Doe\",\n    \"email\": \"john.doe@example.com\",\n    \"age\": 28,\n    \"country\": \"United States\"\n  },\n  {\n    \"id\": 67890,\n    \"name\": \"Maria Smith\",\n    \"email\": \"maria.smith@example.co.uk\",\n    \"age\": 45,\n    \"country\": \"United Kingdom\"\n  },\n  {\n    \"id\": 11112,\n    \"name\": \"Alex Brown\",\n    \"email\": \"ale<EMAIL>xample.com\",\n    \"age\": 30,\n    \"country\": \"Australia\"\n  },\n  {\n    \"id\": 22223,\n    \"name\": \"Lisa Johnson\",\n    \"email\": \"lisa.johnson@example.net\",\n    \"age\": 18,\n    \"country\": \"Germany\"\n  },\n  {\n    \"id\": 33334,\n    \"name\": \"Bob White\",\n    \"email\": \"bob.white@example.at\",\n    \"age\": 65,\n    \"country\": \"Austria\"\n  }",
+          "response_time_seconds": 3.128
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "stepfun/step-3.5-flash",
+          "test_result": "[\n  {\n    \"id\": 1,\n    \"name\": \"Emma Johnson\",\n    \"email\": \"emma.johnson@example.com\",\n    \"age\": 28,\n    \"country\": \"Canada\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Liam Smith\",\n    \"email\": \"liam.smith94@example.net\",\n    \"age\": 34,\n    \"country\": \"United Kingdom\"\n  },\n  {\n    \"id\": 3,\n    \"name\": \"Sofia Garc\u00eda\",\n    \"email\": \"sofia.garcia@example.es\",\n    \"age\": 22,\n    \"country\": \"Spain\"\n  },\n  {\n    \"id\": 4,\n    \"name\": \"Kenji Tanaka\",\n    \"email\": \"kenji.tanaka@example.jp\",\n    \"age\": 45,\n    \"country\": \"Japan\"\n  },\n  {\n    \"id\": 5,\n    \"name\": \"Olivia M\u00fcller\",\n    \"email\": \"olivia.mueller@example.de\",\n    \"age\": 31,\n    \"country\": \"Germany\"\n  }\n]",
+          "response_time_seconds": 3.126
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "test_result": "[\n  {\n    \"id\": 1,\n    \"name\": \"Liam O'Connor\",\n    \"email\": \"liam.oconnor@email.com\",\n    \"age\": 29,\n    \"country\": \"Ireland\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Sofia Martinez\",\n    \"email\": \"sofia.martinez@email.com\",\n    \"age\": 42,\n    \"country\": \"Mexico\"\n  },\n  {\n    \"id\": 3,\n    \"name\": \"Kenji Tanaka\",\n    \"email\": \"kenji.tanaka@email.com\",\n    \"age\": 55,\n    \"country\": \"Japan\"\n  },\n  {\n    \"id\": 4,\n    \"name\": \"Aisha Patel\",\n    \"email\": \"aisha.patel@email.com\",\n    \"age\": 31,\n    \"country\": \"India\"\n  },\n  {\n    \"id\": 5,\n    \"name\": \"Hugo Dubois\",\n    \"email\": \"hugo.dubois@email.com\",\n    \"age\": 19,\n    \"country\": \"France\"\n  }\n]",
+          "response_time_seconds": 7.681
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "google/gemma-3-27b-it",
+          "test_result": "\n```json\n[\n  {\n    \"id\": 101,\n    \"name\": \"Aisha Khan\",\n    \"email\": \"aisha.khan@example.com\",\n    \"age\": 28,\n    \"country\": \"Canada\"\n  },\n  {\n    \"id\": 235,\n    \"name\": \"Jean-Pierre Dubois\",\n    \"email\": \"jp.dubois@email.fr\",\n    \"age\": 45,\n    \"country\": \"France\"\n  },\n  {\n    \"id\": 389,\n    \"name\": \"Kenji Tanaka\",\n    \"email\": \"kenji.tanaka@domain.jp\",\n    \"age\": 61,\n    \"country\": \"Japan\"\n  },\n  {\n    \"id\": 412,\n    \"name\": \"Sofia Rodriguez\",\n    \"email\": \"sofia.rodriguez@provider.es\",\n    \"age\": 22,\n    \"country\": \"Spain\"\n  },\n  {\n    \"id\": 556,\n    \"name\": \"David Miller\",\n    \"email\": \"david.miller1988@mail.com\",\n    \"age\": 35,\n    \"country\": \"United States\"\n  }\n]\n```",
+          "response_time_seconds": 20.61
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "openai/gpt-oss-20b",
+          "test_result": "[\n  {\n    \"id\": 1,\n    \"name\": \"Alice Johnson\",\n    \"email\": \"alice.johnson@example.com\",\n    \"age\": 34,\n    \"country\": \"United States\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Benito Ramirez\",\n    \"email\": \"benito.ramirez@example.org\",\n    \"age\": 27,\n    \"country\": \"Mexico\"\n  },\n  {\n    \"id\": 3,\n    \"name\": \"Chloe Patel\",\n    \"email\": \"chloe.patel@example.co.uk\",\n    \"age\": 42,\n    \"country\": \"United Kingdom\"\n  },\n  {\n    \"id\": 4,\n    \"name\": \"Dmitri Kuznetsov\",\n    \"email\": \"dmitri.kuznetsov@example.ru\",\n    \"age\": 61,\n    \"country\": \"Russia\"\n  },\n  {\n    \"id\": 5,\n    \"name\": \"Evelyn Ng\",\n    \"email\": \"evelyn.ng@example.com.au\",\n    \"age\": 29,\n    \"country\": \"Australia\"\n  }\n]",
+          "response_time_seconds": 1.946
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "minimax/minimax-m2:5",
+          "test_result": "[\n  {\n    \"id\": 1,\n    \"name\": \"Alice Johnson\",\n    \"email\": \"alice.j",
+          "response_time_seconds": 13.71
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "microsoft/phi-4",
+          "test_result": "```json\n[\n    {\n        \"id\": 1,\n        \"name\": \"Alice Johnson\",\n        \"email\": \"alice.johnson@example.com\",\n        \"age\": 34,\n        \"country\": \"United States\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Liam Martinez\",\n        \"email\": \"liam.martinez@example.com\",\n        \"age\": 28,\n        \"country\": \"Canada\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Sophia Chen\",\n        \"email\": \"sophia.chen@example.com\",\n        \"age\": 45,\n        \"country\": \"Australia\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Mohammed Al-Farsi\",\n        \"email\": \"mohammed.alfarsi@example.com\",\n        \"age\": 52,\n        \"country\": \"United Arab Emirates\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Elena Petrova\",\n        \"email\": \"elena.petrova@example.com\",\n        \"age\": 31,\n        \"country\": \"Russia\"\n    }\n]\n```",
+          "response_time_seconds": 3.445
+        }
+      ],
+      "validations": [],
+      "winner": null
+    },
+    {
+      "test_prompt": "\nWrite a Python function called `find_duplicates` that takes a list of integers as input and returns a sorted list of integers that appear more than once. Do not use any external libraries. Include a brief docstring and at least one usage example in a comment.\n",
+      "validation_prompt": "\nYou are evaluating two model responses to a Python code generation task. Score each from 1\u201310.\n\nScoring rules:\n- Start both models at 10\n- Deduct 4 points if the function is not named `find_duplicates`\n- Deduct 3 points if find_duplicates([1, 2, 2, 3, 3, 3]) would not return [2, 3]\n- Deduct 3 points if find_duplicates([1, 2, 3]) would not return []\n- Deduct 3 points if find_duplicates([]) would not return []\n- Deduct 3 points if find_duplicates([5, 5, 5]) would not return [5]\n- Deduct 2 points if the result is not sorted in ascending order\n- Deduct 1 point if there is no docstring\n- Deduct 1 point if there is no usage example in a comment\n- Deduct 2 points if any external library is imported\n- Minimum score is 1\n",
+      "results": [
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "ministral-3:3b",
+          "test_result": "Here\u2019s a Python function `find_duplicates` that takes a list of integers and returns a sorted list of integers that appear more than once:\n\n```python\ndef find_duplicates(nums):\n    \"\"\"\n    Finds and returns sorted integers that appear more than once in the input list.\n\n    Args:\n        nums (list[int]): A list of integers to check for duplicates.\n\n    Returns:\n        list[int]: A sorted list of integers that appear exactly twice (or more),\n                  in ascending order.\n    \"\"\"\n    # Using a frequency map to count occurrences of each number\n    freq_map = {}\n    for num in nums:\n        freq_map[num] = freq_map.get(num, 0) + 1\n\n    # Extract numbers that appear more than once, then sort them\n    duplicates = [num for num in freq_map if freq_map[num] > 1]\n    duplicates.sort()\n\n    return duplicates\n\n# Example usage:\nif __name__ == \"__main__\":\n    numbers = [1, 2, 3, 2, 4, 5, 4, 6]\n    print(find_duplicates(numbers))  # Output: [2, 4]\n```\n\n### Explanation:\n1. **Frequency Map**: The code uses a dictionary (`freq_map`) to count how many times each number appears in the input list.\n2. **Extract Duplicates**: It filters out numbers that occur more than once using a list comprehension.\n3. **Sorting**: The duplicates are sorted in ascending order before returning.\n4. **Time Complexity**: This approach runs in \\(O(n \\log n)\\) in the worst case due to sorting (or \\(O(n)\\) if you avoid sorting after counting).\n\n### Example Output:\nFor `nums = [1, 2, 3, 2, 4, 5, 4, 6]`, the output is `[2, 4]` because these numbers appear more than once.\n---",
+          "response_time_seconds": 2.774
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "llama3.2:1b",
+          "test_result": "Here's the implementation of the `find_duplicates` function you asked for:\n\n```python\ndef find_duplicates(nums):\n    \"\"\"\n    Returns a sorted list of integers that appear more than once in the input list.\n\n    Args:\n        nums (list): A list of integers.\n\n    Returns:\n        list: A list of duplicate integers.\n\n    Examples:\n        >>> find_duplicates([1, 2, 3, 4, 5, 6])\n        [1]\n    \"\"\"\n\n    # Create an empty dictionary to store the count of each number.\n    num_count = {}\n\n    # Iterate over the input list and count the occurrences of each number.\n    for num in nums:\n        if num in num_count:\n            num_count[num] += 1\n        else:\n            num_count[num] = 1\n\n    # Use a dictionary comprehension to filter out the numbers with a count greater than 1.\n    duplicates = {num: count for num, count in num_count.items() if count > 1}\n\n    # Sort the list of duplicates and return it.\n    return sorted(list(duplicates.keys()))\n```\n\nThis function works by first counting the occurrences of each number in the input list. It then uses a dictionary comprehension to create a new dictionary that only includes the numbers with a count greater than 1. Finally, it returns all the keys (i.e., the original numbers) from this new dictionary, which correspond to the duplicate integers.\n\nThe usage example I provided demonstrates how to use this function:\n\n```python\nprint(find_duplicates([1, 2, 3, 4, 5, 6]))  # [1]\n```\n\nNote that in Python, dictionary keys must be immutable (i.e., can't be changed after creation) since we're converting the original values used in the key.",
+          "response_time_seconds": 2.182
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "qwen2.5-coder:1.5b",
+          "test_result": "```python\n# Function to find duplicates in a list of integers\ndef find_duplicates(numbers):\n    \"\"\"\n    Finds all elements in the input list that occur more than once, returns them sorted.\n\n    Args:\n    numbers (list): A list of integers.\n\n    Returns:\n    list: A sorted list containing all duplicates found in the input list.\n    \"\"\"\n\n    # Create a set to keep track of seen numbers\n    seen = set()\n    # Initialize an empty list for duplicates\n    duplicates = []\n\n    # Iterate through each number in the list\n    for num in numbers:\n        # Check if the number is already in the seen set\n        if num in seen:\n            # Add it to the duplicates list if it's a duplicate\n            duplicates.append(num)\n        else:\n            # Otherwise, add it to the seen set\n            seen.add(num)\n\n    # Return the sorted list of duplicates\n    return sorted(duplicates)\n\n# Example usage of the function\nif __name__ == \"__main__\":\n    sample_list = [10, 3, 6, 2, 8, 1, 5]\n    duplicated_numbers = find_duplicates(sample_list)\n    print(\"Duplicates found:\", duplicated_numbers)\n\n    # Expected output: Duplicates found: [1, 2, 3]\n```\n\nThis Python function `find_duplicates` efficiently finds and returns sorted duplicates from a list of integers, without using any external libraries. It uses a set to keep track of seen elements, which simplifies the logic for identifying duplicates with a time complexity of O(n), where n is the length of the list.",
+          "response_time_seconds": 2.253
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "nemotron-mini:4b",
+          "test_result": " Sure, here is an implementation using Python's built-in functions such as `count`, `index` and the sort function:\n```python\ndef find_duplicates(numbers):\n    \"\"\"\n    Find duplicates in a list of numbers, returning them sorted for convenience.\n\n    Parameters:\n    numbers (list of int) -- The input list of integers to analyze.\n\n    Returns:\n    tuple (sorted list of int) -- A tuple containing the duplicate numbers as a sorted list if found, otherwise an empty tuple.\n\n    Examples:\n        In [1]: find_duplicates([1, 2, 3, 4])  # No duplicates return ()\n        Out[1]: (2,)       # If duplicates exist they are returned in order of appearance within the input list\n        In [2]: find_duplicates([1, 2, 2, 3])  # Duplicate numbers are found and sorted as expected\n        Out[2]: (1, )\n    \"\"\"\n    counts = {}.for num in numbers:\n        count = numbers.count(num)\n        if count > 1:\n            return tuple([numbers.index(num)] * count)  # Return first occurrence of each duplicate number only once so we get the correct order and return as a tuple instead of a list to avoid sorting on output\n```",
+          "response_time_seconds": 3.323
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "stepfun/step-3.5-flash",
+          "test_result": "Here's a Python function that finds duplicates in a list and returns them sorted:\n\n```python\ndef find_duplicates(nums):\n    \"\"\"\n    Return a sorted list of integers that appear more than once in the input list.\n    \n    Args:\n        nums (list): List of integers to check for duplicates\n        \n    Returns:\n        list: Sorted list of duplicate integers (each duplicate appears only once)\n        \n    Example:\n        >>> find_duplicates([4, 2, 3, 2, 1, 4, 5])\n        [2, 4]\n    \"\"\"\n    seen = set()\n    duplicates = set()\n    \n    for num in nums:\n        if num in seen:\n            duplicates.add(num)\n        else:\n            seen.add(num)\n            \n    return sorted(duplicates)\n\n\n# Usage example\nif __name__ == \"__main__\":\n    sample = [1, 2, 3, 4, 3, 2, 5, 6, 5, 5]\n    result = find_duplicates(sample)\n    print(f\"Duplicates in {sample}: {result}\")  # Output: [2, 3, 5]\n```\n\n**How it works:**\n1. Uses two sets: `seen` tracks all numbers encountered, `duplicates` tracks numbers seen more than once\n2. Iterates through the list once (O(n) time complexity)\n3. For each number:\n   - If already in `seen`, add to `duplicates`\n   - Otherwise, add to `seen`\n4. Converts `duplicates` set to sorted list before returning\n\n**Key points:**\n- Returns each duplicate only once (even if appears 3+ times)\n- Preserves integer sorting order (ascending)\n- Handles negative numbers correctly\n- O(n) time, O(n) space complexity\n- No external libraries used\n\n**Example output:**\n```\nDuplicates in [1, 2, 3, 4, 3, 2, 5, 6, 5, 5]: [2, 3, 5]\n```",
+          "response_time_seconds": 5.79
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "test_result": "```python\ndef find_duplicates(nums):\n    \"\"\"\n    Return a sorted list of integers that appear more than once in the input list.\n\n    Parameters\n    ----------\n    nums : list[int]\n        List of integers to inspect.\n\n    Returns\n    -------\n    list[int]\n        Sorted list containing each integer that occurs at least twice in `nums`.\n        Each duplicate value appears only once in the result.\n\n    Example\n    -------\n    >>> find_duplicates([4, 2, 5, 2, 3, 4, 4])\n    [2, 4]\n    \"\"\"\n    # Count occurrences using a plain dictionary\n    counts = {}\n    for n in nums:\n        counts[n] = counts.get(n, 0) + 1\n\n    # Keep only numbers with count > 1\n    dup = [n for n, c in counts.items() if c > 1]\n\n    # Return them sorted\n    dup.sort()\n    return dup\n\n\n# Usage example:\n# print(find_duplicates([1, 3, 2, 3, 4, 5, 1, 1]))  # Output: [1, 3]\n```",
+          "response_time_seconds": 4.327
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "google/gemma-3-27b-it",
+          "test_result": "```python\ndef find_duplicates(numbers):\n  \"\"\"\n  Finds duplicate integers in a list.\n\n  Args:\n    numbers: A list of integers.\n\n  Returns:\n    A sorted list of integers that appear more than once in the input list.\n  \"\"\"\n  counts = {}\n  duplicates = []\n  for number in numbers:\n    if number in counts:\n      counts[number] += 1\n    else:\n      counts[number] = 1\n\n  for number, count in counts.items():\n    if count > 1:\n      duplicates.append(number)\n\n  duplicates.sort()\n  return duplicates\n\n# Example Usage:\n# numbers = [1, 2, 3, 4, 2, 5, 6, 1, 7, 8, 8]\n# duplicates = find_duplicates(numbers)\n# print(duplicates)  # Output: [1, 2, 8]\n```",
+          "response_time_seconds": 5.806
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "openai/gpt-oss-20b",
+          "test_result": "```python\ndef find_duplicates(nums):\n    \"\"\"\n    Return a sorted list of integers that appear more than once in `nums`.\n\n    Parameters\n    ----------\n    nums : list[int]\n        A list of integers.\n\n    Returns\n    -------\n    list[int]\n        A sorted list containing each integer that occurs at least twice in `nums`.\n\n    Examples\n    --------\n    >>> find_duplicates([1, 2, 3, 1, 2, 4])\n    [1, 2]\n    >>> find_duplicates([5, 5, 5, 5])\n    [5]\n    >>> find_duplicates([1, 2, 3])\n    []\n    \"\"\"\n    counts = {}\n    for n in nums:\n        counts[n] = counts.get(n, 0) + 1\n    dupes = [n for n, c in counts.items() if c > 1]\n    dupes.sort()\n    return dupes\n```",
+          "response_time_seconds": 4.267
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "minimax/minimax-m2:5",
+          "test_result": "To solve this problem, we need to identify and list all integers in a given list that appear more than once. The solution should efficiently count the occurrences of each integer and then filter out those that appear multiple times, returning them in a sorted order. \n\n### Approach\n1. **Count Occurrences**: Use a dictionary to count how many times each integer appears in the list. The dictionary will map each integer to its frequency.\n2. **Identify Duplicates**: Iterate through the dictionary to collect integers with a frequency greater than one.\n3. **Sort Duplicates**: Sort the list of duplicates to ensure the output is in ascending order.\n\nThis approach ensures that we efficiently count each integer's occurrences and then retrieve the duplicates in a straightforward manner. The use of a dictionary allows for O(n) time complexity for counting, making the solution efficient even for large lists.\n\n### Solution Code\n```python\ndef find_duplicates(nums):\n    \"\"\"\n    Find and return a sorted list of integers that appear more than once in the input list.\n    \n    Args:\n        nums (list of int): The list of integers to check for duplicates.\n    \n    Returns:\n        list of int: A sorted list containing integers that appear more than once.\n    \n    Example:\n        >>> find_duplicates([1, 2, 2, 3, 4, 4, 5])\n        [2, 4]\n    \"\"\"\n    count_dict = {}\n    for num in nums:\n        count_dict[num] = count_dict.get(num, 0) + 1\n    \n    duplicates = [num for num, count in count_dict.items() if count > 1]\n    return sorted(duplicates)\n```\n\n### Explanation\n1. **Counting Occurrences**: The dictionary `count_dict` is built by iterating through each number in the list. Each number's count is incremented using the `get` method, which safely returns the current count if present, or 0 if not.\n2. **Filtering Duplicates**: A list comprehension is used to collect numbers from the dictionary where the count is greater than one.\n3. **Sorting**: The `sorted` function is applied to the list of duplicates to ensure the output is in ascending order, as required by the problem.\n\nThis approach efficiently processes the input list in linear time relative to the size of the list, making it optimal for the given problem constraints. The solution is concise and leverages Python's built-in functions for clarity and efficiency.",
+          "response_time_seconds": 3.904
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "microsoft/phi-4",
+          "test_result": "Below is a Python function called `find_duplicates` that fulfills the requirements. The function takes a list of integers as input and returns a sorted list of integers that appear more than once.\n\n```python\ndef find_duplicates(nums):\n    \"\"\"\n    Find duplicates in a list of integers.\n\n    This function takes a list of integers and returns a sorted list of integers\n    that appear more than once in the input list.\n\n    Parameters:\n    nums (list of int): A list of integers.\n\n    Returns:\n    list of int: A sorted list of integers that appear more than once in the input list.\n\n    Example:\n    >>> find_duplicates([4, 3, 2, 7, 8, 2, 3, 1])\n    [2, 3]\n    \"\"\"\n    \n    # Dictionary to keep track of each integer's frequency\n    frequency = {}\n    \n    # Populate the frequency dictionary\n    for num in nums:\n        if num in frequency:\n            frequency[num] += 1\n        else:\n            frequency[num] = 1\n    \n    # Collect numbers that appear more than once\n    duplicates = [num for num, count in frequency.items() if count > 1]\n    \n    # Return the sorted list of duplicates\n    return sorted(duplicates)\n\n# Example usage:\n# duplicates = find_duplicates([4, 3, 2, 7, 8, 2, 3, 1])\n# print(duplicates)  # Output: [2, 3]\n```\n\n### Explanation:\n- **Docstring**: The function is documented with a brief description, parameters, and a simple usage example.\n- **Frequency Dictionary**: As the function iterates over the list, it counts occurrences of each integer, storing results in a dictionary.\n- **Collect Duplicates**: It then forms a list of numbers that appear more than once using a list comprehension.\n- **Sorting**: Finally, the list of duplicates is sorted and returned.",
+          "response_time_seconds": 5.807
+        }
+      ],
+      "validations": [],
+      "winner": null
+    },
+    {
+      "test_prompt": "\nSummarize the following text in 3\u20134 sentences. Preserve the main argument, key details, and any important nuance. Do not include opinions or add new information.\nText:\n```\nArtificial intelligence systems are increasingly being integrated into decision-making processes across industries, from healthcare to finance. While these systems offer improved efficiency and scalability, they also introduce concerns about transparency, bias, and accountability. Critics argue that reliance on opaque models may lead to decisions that are difficult to interpret or challenge, especially when errors occur. Proponents, however, emphasize the potential for AI to reduce human error and enhance outcomes when properly designed and monitored.\n```\n",
+      "validation_prompt": "\nYou are evaluating two model responses to a summarization task. Score each from 1\u201310.\n\nThe original text contains exactly these key points:\n1. AI is being integrated into decision-making across industries (healthcare, finance)\n2. Benefits: improved efficiency and scalability\n3. Concerns: transparency, bias, and accountability\n4. Critics' position: opaque models produce hard-to-interpret or challenge decisions, especially when errors occur\n5. Proponents' position: AI can reduce human error and enhance outcomes if properly designed and monitored\n\nScoring rules:\n- Start both models at 10\n- Deduct 1 point per missing key point (from the 5 above)\n- Deduct 2 points if the summary exceeds 4 sentences\n- Deduct 2 points if the summary adds information not present in the original text\n- Deduct 1 point if the summary contains an opinion or editorial language\n- Minimum score is 1\n",
+      "results": [
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "ministral-3:3b",
+          "test_result": "Artificial intelligence (AI) systems are being adopted in industries such as healthcare and finance to streamline decision-making and boost efficiency and scalability.\n\nHowever, their adoption raises concerns about **transparency, algorithmic bias, and accountability**, as opaque models may produce hard-to-interpret or questionable outcomes.\n\nCritics emphasize that reliance on AI without proper oversight can exacerbate issues, particularly when errors occur, while proponents highlight its ability to reduce human errors and improve outcomes when carefully deployed and regulated.",
+          "response_time_seconds": 1.229
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "llama3.2:1b",
+          "test_result": "Here is a summary of the text in 3-4 sentences:\n\nArtificial intelligence systems are being integrated into decision-making processes across various industries, introducing concerns about transparency, bias, and accountability. Reliance on opaque models may lead to difficult-to-interpret or challenging decisions due to errors. However, proponents argue that AI can enhance outcomes by reducing human error when properly designed and monitored. Despite these concerns, the benefits of AI in improving efficiency and scalability outweigh its limitations, according to proponents.",
+          "response_time_seconds": 0.648
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "qwen2.5-coder:1.5b",
+          "test_result": "Artificial intelligence (AI) systems have become increasingly integral in various industries to streamline decision-making processes. However, their implementation raises concerns about transparency, bias, and accountability. Critics argue that relying on opaque models can hinder interpretation of results or challenge the validity of decisions when errors occur. In contrast, proponents view AI's potential as a tool to reduce human error and improve outcomes in strategic areas like healthcare and finance.",
+          "response_time_seconds": 0.716
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "nemotron-mini:4b",
+          "test_result": " Artificial intelligence (AI) systems are becoming more prevalent in various industries' decision-making processes due to their efficiency and scalability advantages, but they also raise concerns regarding transparency, bias, and accountability issues. Critics believe that opaque models can make it challenging to understand or challenge decisions when errors occur, while proponents emphasize the potential for AI to minimize human error and improve outcomes when developed and monitored correctly.",
+          "response_time_seconds": 1.056
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "stepfun/step-3.5-flash",
+          "test_result": "Artificial intelligence is being widely adopted in decision-making across sectors like healthcare and finance, offering gains in efficiency and scalability. However, this integration raises significant concerns regarding system transparency, potential bias, and issues of accountability, as opaque models can produce difficult-to-interpret or challengeable outcomes. Critics highlight these risks, particularly when errors occur, while supporters counter that AI can reduce human error and improve results, provided the systems are carefully designed and monitored. The debate thus centers on balancing AI's benefits against the need for interpretability and responsible governance.",
+          "response_time_seconds": 3.575
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "test_result": "Artificial intelligence systems are being integrated into decision\u2011making processes across industries such as healthcare and finance, providing improvements in efficiency and scalability. Their deployment, however, raises concerns about transparency, bias, and accountability, especially when the models are opaque and errors occur. Proponents argue that when AI is properly designed and monitored, it can reduce human error and enhance outcomes.",
+          "response_time_seconds": 3.653
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "google/gemma-3-27b-it",
+          "test_result": "Artificial intelligence is being implemented in decision-making across various sectors due to its efficiency and scalability. This integration raises concerns regarding the transparency of AI models, potential biases within them, and establishing accountability for their outputs. While critics highlight the difficulty in understanding and disputing AI-driven decisions\u2014particularly in cases of error\u2014supporters point to AI\u2019s capacity to minimize human mistakes and improve results with careful development and oversight. The text presents a balanced view of both the benefits and drawbacks of employing AI in decision-making.",
+          "response_time_seconds": 4.015
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "openai/gpt-oss-20b",
+          "test_result": "Artificial intelligence systems are increasingly being integrated into decision\u2011making across industries such as healthcare and finance. These systems offer improved efficiency and scalability, but they also raise concerns about transparency, bias, and accountability. Critics warn that opaque models can produce decisions that are hard to interpret or contest, especially when errors arise. Proponents counter that, when properly designed and monitored, AI can reduce human error and improve outcomes.",
+          "response_time_seconds": 1.286
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "minimax/minimax-m2:5",
+          "test_result": "AI systems are increasingly being used in decision-making across industries like healthcare and finance, offering improved efficiency and scalability. However, concerns exist regarding transparency, bias, and accountability, with critics arguing that opaque models can make decisions difficult to interpret or challenge when errors occur. Proponents counter that AI can reduce human error and improve outcomes when properly designed and monitored.",
+          "response_time_seconds": 4.427
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "microsoft/phi-4",
+          "test_result": "Artificial intelligence systems are being increasingly used in decision-making across various industries, such as healthcare and finance, due to their efficiency and scalability. However, this integration raises concerns about transparency, bias, and accountability, as opaque models can make decision-making difficult to interpret or contest, particularly when errors arise. Critics highlight these challenges, while proponents argue that, if properly designed and monitored, AI can significantly reduce human error and improve outcomes.",
+          "response_time_seconds": 1.601
+        }
+      ],
+      "validations": [],
+      "winner": null
+    },
+    {
+      "test_prompt": "\nHow many ways can you tile a 2\u00d710 grid using 1\u00d72 dominoes (which can be placed horizontally or vertically)?\nProvide only the integer answer with no explanation.\n",
+      "validation_prompt": "\nYou are evaluating two model responses to a combinatorics problem. Score each from 1\u201310.\n\nThe correct answer is 89.\n\nScoring rules:\n- Start both models at 10\n- Deduct 10 points (score becomes 1) if the answer is not 89\n- The answer must be exactly \"89\" (as a standalone integer or clearly stated as the final answer)\n- Deduct 2 points if the answer contains extraneous text that obscures the answer\n- Minimum score is 1\n",
+      "results": [
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "ministral-3:3b",
+          "test_result": "512.",
+          "response_time_seconds": 0.503
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "llama3.2:1b",
+          "test_result": "16",
+          "response_time_seconds": 0.202
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "qwen2.5-coder:1.5b",
+          "test_result": "To determine how many ways to tile a 2x10 grid using 1x2 dominoes, we can use dynamic programming. Let's denote \\(a_n\\) as the number of ways to tile a n x m grid using 1x2 dominoes.\n\nThe recurrence relation for \\(a_n\\) is:\n\\[a_n = 2a_{n-1} + a_{n-2}\\]\n\nThis recurrence relation arises because we can place a vertical domino in any cell that does not have a horizontal neighbor above it, which leaves us with an (n-1) x m grid. Alternatively, we can place a horizontal domino in the first cell of the grid, which leaves us with an (n-2) x m grid.\n\nThe base cases are:\n\\[a_0 = 1\\] (an empty grid is one way)\n\\[a_1 = 1\\] (a 1x1 grid can be tiled in only one way)\n\nUsing these recurrence relation and the base cases, we can compute \\(a_{20}\\).\n\nLet's implement this in Python to find the number of ways to tile a 2x10 grid.\n```python\n# Base cases\na_0 = 1\na_1 = 1\n\n# Number of rows\nn = 20\n\n# Calculate a_n using the recurrence relation\nfor i in range(2, n + 1):\n    a_n = 2 * a_(i - 1) + a_(i - 2)\n\nprint(a_n)\n```\n```output\n258489\n```\nThe number of ways to tile a 2x10 grid using 1x2 dominoes is \\(\\boxed{258489}\\).",
+          "response_time_seconds": 2.53
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "nemotron-mini:4b",
+          "test_result": " ${10 \\choose 5} = {10 \\choose 9} + {10 \\choose 8}$",
+          "response_time_seconds": 0.575
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "stepfun/step-3.5-flash",
+          "test_result": "89",
+          "response_time_seconds": 4.5
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "test_result": "\n89",
+          "response_time_seconds": 1.714
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "google/gemma-3-27b-it",
+          "test_result": "89",
+          "response_time_seconds": 0.902
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "openai/gpt-oss-20b",
+          "test_result": "89",
+          "response_time_seconds": 0.244
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "minimax/minimax-m2:5",
+          "test_result": "89",
+          "response_time_seconds": 2.463
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "microsoft/phi-4",
+          "test_result": "89",
+          "response_time_seconds": 0.305
+        }
+      ],
+      "validations": [],
+      "winner": null
+    },
+    {
+      "test_prompt": "\nA spaceship travels from Earth to a star 40 light-years away (in Earth's reference frame) at 0.8c. \nHow many years does the trip take as measured by the crew aboard the spaceship?\nGive only the numerical answer in years, rounded to one decimal place.\n",
+      "validation_prompt": "\nYou are evaluating two model responses to a special relativity problem. Score each from 1\u201310.\n\nThe correct answer is 30.0 years.\nDerivation: Lorentz factor \u03b3 = 1/\u221a(1\u22120.64) = 1/0.6 = 5/3.\nProper time = 40/0.8 / \u03b3 = 50 / (5/3) = 30.0 years.\n\nScoring rules:\n- Start both models at 10\n- Deduct 8 points if the answer is not within \u00b10.2 of 30.0\n- Deduct 4 points if the answer is not within \u00b10.05 of 30.0 (i.e. not exactly 30.0)\n- Deduct 2 points if units (years) are not stated or clearly implied\n- Minimum score is 1\n",
+      "results": [
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "ministral-3:3b",
+          "test_result": "13.8",
+          "response_time_seconds": 0.521
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "llama3.2:1b",
+          "test_result": "To find the time experienced by the crew on their journey, we need to use special relativity and add the proper time (time contracted due to velocity) to their journey duration.\n\nFirst, calculate the time measured in Earth's frame:\n\nTime = Distance / Speed\nTime = 40 light-years * 1 year/light-year / 0.8c\nTime \u2248 50 years\n\nNow, use time dilation formula for an observer at rest: $\\frac{T}{T'} = \\sqrt[1]{\\frac{1}{(v/m)}}$\n\nIn this case, $m = c$ (speed of light). Substituting the values:\n\n$\\frac{T}{T'} = \\sqrt{\\frac{1}{0.8c/c}}$\n$\\frac{T}{T'} = \\sqrt{\\frac{1}{0.8}}$\n$\\frac{T}{T'} = \\sqrt{1.25}$\n$\\frac{T}{T'} \\approx 1.08$\n\nConverting $\\frac{50 years}{1.08}$ to numerical value, we get:\n\n$56.36\\ years$\n\nThe trip takes approximately $56.4$ years as measured by the crew aboard the spaceship.",
+          "response_time_seconds": 1.355
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "qwen2.5-coder:1.5b",
+          "test_result": "To determine how long the trip takes for the crew aboard the spaceship, we can use the formula for time dilation due to acceleration:\n\n\\[ t_{\\text{crew}} = \\sqrt{\\frac{1 + v^2}{1 - \\frac{v^2}{c^2}}} \\]\n\nwhere:\n- \\( t_{\\text{crew}} \\) is the observed time from Earth's frame,\n- \\( v \\) is the velocity of the spaceship relative to Earth,\n- \\( c \\) is the speed of light.\n\nGiven:\n- The distance to the star in Earth's frame, \\( d = 40 \\) light-years.\n- The velocity of the spaceship, \\( v = 0.8c \\).\n\nFirst, convert the distance from light-years to meters and the velocity from centimeters per second (c) to meters per second:\n\n\\[ d = 40 \\text{ light-years} = 40 \\times 9.461 \\times 10^{12} \\text{ m} = 3.784 \\times 10^{13} \\text{ m} \\]\n\n\\[ v = 0.8c = 0.8 \\times 299,792,458 \\text{ m/s} = 2,398,339,664 \\text{ m/s} \\]\n\nNow, substitute the values into the time dilation formula:\n\n\\[ t_{\\text{crew}} = \\sqrt{\\frac{1 + (2.398339664)^2}{1 - \\left(0.8\\right)^2}} \\]\n\nCalculate the square of \\( v \\):\n\n\\[ v^2 = (2.398339664)^2 \\approx 579,090.64 \\text{ m}^2/s^2 \\]\n\nSubstitute \\( v^2 \\) back into the formula:\n\n\\[ t_{\\text{crew}} = \\sqrt{\\frac{1 + 579,090.64}{1 - \\left(0.8\\right)^2}} \\]\n\nCalculate \\( 0.8^2 \\):\n\n\\[ 0.8^2 = 0.64 \\]\n\nSubtract \\( 0.64 \\) from 1:\n\n\\[ 1 - 0.64 = 0.36 \\]\n\nSubstitute these values into the formula:\n\n\\[ t_{\\text{crew}} = \\sqrt{\\frac{1 + 579,090.64}{0.36}} \\]\n\nCalculate the numerator:\n\n\\[ 1 + 579,090.64 = 579,091.64 \\]\n\nNow, divide by 0.36:\n\n\\[ \\frac{579,091.64}{0.36} = 1,603,693.4444 \\]\n\nFinally, take the square root of the result:\n\n\\[ t_{\\text{crew}} = \\sqrt{1,603,693.4444} \\approx 400.8 \\text{ years} \\]\n\nThus, the trip takes about **400.8** years as measured by the crew aboard the spaceship.\n\nTo round to one decimal place:\n\n\\[\n\\boxed{400.8}\n\\]",
+          "response_time_seconds": 4.373
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "nemotron-mini:4b",
+          "test_result": " As seen from the spaceship traveling close to the speed of light (0.8 * light-years), the duration will be Lorentz' contracted length: 40/gamma(1 - 0.8^2) = 40 / gamma(~3). The value of gamma at this velocity is given by gamma(v) = sqrt((1 + v^(2)/c^(2)) which can be simplified to gamma = (1+0.64)^(.5)=1.17 for the spaceship crew's frame. Thus, time dilation becomes t_ship = 40 / 1.17 ~=34 terrestrial years.",
+          "response_time_seconds": 1.748
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "stepfun/step-3.5-flash",
+          "test_result": "30.0",
+          "response_time_seconds": 4.625
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "test_result": "\n\n30.0",
+          "response_time_seconds": 1.436
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "google/gemma-3-27b-it",
+          "test_result": "\n6.7 years\n",
+          "response_time_seconds": 0.892
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "openai/gpt-oss-20b",
+          "test_result": "30.0",
+          "response_time_seconds": 3.372
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "minimax/minimax-m2:5",
+          "test_result": "30.0",
+          "response_time_seconds": 6.609
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "microsoft/phi-4",
+          "test_result": "To calculate the time experienced by the crew aboard the spaceship, we use the concept of time dilation from Einstein's theory of special relativity. The formula for time dilation is:\n\n\\[\nt' = \\frac{t}{\\gamma}\n\\]\n\nwhere \\( t' \\) is the time experienced by the moving observer (the crew), \\( t \\) is the time in the stationary observer's frame (Earth), and \\( \\gamma \\) (the Lorentz factor) is given by:\n\n\\[\n\\gamma = \\frac{1}{\\sqrt{1 - v^2/c^2}}\n\\]\n\nGiven:\n- The distance to the star is 40 light-years.\n- The speed of the spaceship \\( v = 0.8c \\).\n\nFirst, calculate the time \\( t \\) as measured in Earth's reference frame:\n\n\\[\nt = \\frac{\\text{distance}}{\\text{speed}} = \\frac{40 \\text{ light-years}}{0.8c} = 50 \\text{ years}\n\\]\n\nNext, calculate the Lorentz factor \\( \\gamma \\):\n\n\\[\n\\gamma = \\frac{1}{\\sqrt{1 - (0.8)^2}} = \\frac{1}{\\sqrt{1 - 0.64}} = \\frac{1}{\\sqrt{0.36}} = \\frac{1}{0.6} = \\frac{5}{3}\n\\]\n\nNow, calculate the time \\( t' \\) experienced by the crew:\n\n\\[\nt' = \\frac{t}{\\gamma} = \\frac{50 \\text{ years}}{\\frac{5}{3}} = 50 \\times \\frac{3}{5} = 30 \\text{ years}\n\\]\n\nThus, the trip takes 30.0 years as measured by the crew aboard the spaceship.",
+          "response_time_seconds": 5.84
+        }
+      ],
+      "validations": [],
+      "winner": null
+    },
+    {
+      "test_prompt": "\nFor the reaction N\u2082(g) + 3H\u2082(g) \u21cc 2NH\u2083(g), the equilibrium constant Kp = 6.0 \u00d7 10\u207b\u00b2 atm\u207b\u00b2 at 500\u00b0C.\nIf the equilibrium partial pressures of N\u2082 and H\u2082 are 0.50 atm and 0.75 atm respectively, what is the equilibrium partial pressure of NH\u2083 in atm?\nProvide only the numerical answer rounded to three significant figures.\n",
+      "validation_prompt": "\nYou are evaluating two model responses to a chemical equilibrium problem. Score each from 1\u201310.\n\nCorrect answer: 0.146 atm.\nDerivation: Kp = P(NH\u2083)\u00b2 / (P(N\u2082) \u00d7 P(H\u2082)\u00b3)\n= 6.0\u00d710\u207b\u00b2 = P(NH\u2083)\u00b2 / (0.50 \u00d7 0.421875)\n= P(NH\u2083)\u00b2 / 0.210938 \u2192 P(NH\u2083)\u00b2 = 0.012656 \u2192 P(NH\u2083) = 0.1125... \n\nWait \u2014 recalculating: P(H\u2082)\u00b3 = 0.75\u00b3 = 0.421875\nP(NH\u2083)\u00b2 = 6.0\u00d710\u207b\u00b2 \u00d7 0.50 \u00d7 0.421875 = 0.012656\nP(NH\u2083) = \u221a0.012656 \u2248 0.1125 atm\n\nNote to validator: correct answer is 0.113 atm (3 sig figs). Accept 0.112\u20130.114.\n\nScoring rules:\n- Start both models at 10\n- Deduct 8 points if answer is not within \u00b10.005 of 0.113\n- Deduct 3 points if units (atm) are missing\n- Deduct 1 point if not rounded to 3 significant figures\n- Minimum score is 1\n",
+      "results": [
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "ministral-3:3b",
+          "test_result": "To solve this, we use the expression for \\( K_p \\):\n\n\\[ K_p = \\frac{(P_{\\text{NH}_3})^2}{(P_{\\text{N}_2})^3 \\cdot (P_{\\text{H}_2})^3} \\]\n\nGiven:\n\\( K_p = 6.0 \\times 10^{-2} \\, \\text{atm}^{-2} \\),\n\\( P_{\\text{N}_2} = 0.50 \\, \\text{atm} \\),\n\\( P_{\\text{H}_2} = 0.75 \\, \\text{atm} \\),\nand we wish to solve for \\( P_{\\text{NH}_3} \\).\n\nPlugging values in:\n\n\\[\n6.0 \\times 10^{-2} = \\frac{(P_{\\text{NH}_3})^2}{(0.50)^3 \\cdot (0.75)^3}\n\\]\n\nSolving for \\( P_{\\text{NH}_3}^2 \\):\n\n\\[\n(P_{\\text{NH}_3})^2 = 6.0 \\times 10^{-2} \\cdot (0.50)^3 \\cdot (0.75)^3\n\\]\n\n\\[\n(P_{\\text{NH}_3})^2 = 6.0 \\times 10^{-2} \\cdot 0.125 \\cdot 0.421875 \\approx 3.16406 \\times 10^{-3}\n\\]\n\n\\[\nP_{\\text{NH}_3} = \\sqrt{3.16406 \\times 10^{-3}}\n\\]\n\n### Answer: \\(1.78\\)\\(\\ \\text{atm}\\) (rounded to three significant figures).",
+          "response_time_seconds": 2.662
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "llama3.2:1b",
+          "test_result": "To find the equilibrium partial pressure of NH3, we can use the equation for Kp:\n\nKp = P1P2\u00b2 / P3\u00b9\n\nwhere P1 and P2 are the equilibrium partial pressures of N\u2082 and H\u2082, respectively.\n\nRearranging this equation to solve for P3 (the equilibrium partial pressure of NH\u2083), we get:\n\nP3 = Pk \u00d7 (P1 / P2)\u00b2\n\nFirst, we need to convert Kp from atm\u207b\u00b2 to units that are consistent with the concentration unit. We'll assume atmospheric pressure is 101325 Pa.\n\nKp = 6.0 \u00d7 10\u207b\u00b2 atm\u207b\u00b2\nPa = Kp \u00d7 101325\n\nKp \u2248 6.0 \u00d7 10\u207b02 atm\u207b\u00b2\nPa = 6.0 \u00d7 10\u207b02 \u00d7 10\u2075\nPa \u2248 6.0 Pa\n\nNow we can plug in the values:\n\nP3 = Kp \u00d7 (P1 / P2)\u00b2\n= 6.0 Pa \u00d7 (0.50 atm / 0.75 atm)\u00b2\n= 6.0 \u00d7 10\u207b02 \u22c5 (5/7)\u00b2\n\u2248 0.36 Pa\n\nThe equilibrium partial pressure of NH3 is approximately 0.36 Pa, which rounded to three significant figures is 0.36 atm.",
+          "response_time_seconds": 1.789
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "qwen2.5-coder:1.5b",
+          "test_result": "To find the equilibrium partial pressure of NH\u2083 when given the values for N\u2082(g), H\u2082(g), and Kp, we start with the reaction equation:\n\n\\[ N_2(g) + 3H_2(g) \\rightleftharpoons 2NH_3(g) \\]\n\nAt equilibrium, the sum of the partial pressures of the products equals the sum of the partial pressures of the reactants. Let's denote the equilibrium partial pressure of NH\u2083 as \\( x \\).\n\nThe equilibrium constant expression \\( K_p \\) for this reaction is given by:\n\n\\[ K_p = \\frac{P_{\\text{NH}_3}}{P_{\\text{N}_2} \\cdot P_{\\text{H}_2}^3} \\]\n\nSubstituting the known values into the equilibrium constant expression, we get:\n\n\\[ 6.0 \\times 10^{-2} = \\frac{x}{0.50 \\cdot (0.75)^3} \\]\n\nFirst, we calculate \\( (0.75)^3 \\):\n\n\\[ (0.75)^3 = 0.75 \\times 0.75 \\times 0.75 = 0.421875 \\]\n\nNext, we substitute this value back into the equation:\n\n\\[ 6.0 \\times 10^{-2} = \\frac{x}{0.50 \\cdot 0.421875} = \\frac{x}{0.2109375} \\]\n\nTo find \\( x \\), we multiply both sides by 0.2109375:\n\n\\[ x = 6.0 \\times 10^{-2} \\times 0.2109375 = 0.0126584 \\]\n\nRounding to three significant figures, the equilibrium partial pressure of NH\u2083 is:\n\n\\[ \\boxed{0.013} \\]",
+          "response_time_seconds": 2.927
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "nemotron-mini:4b",
+          "test_result": " 1.20",
+          "response_time_seconds": 0.338
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "stepfun/step-3.5-flash",
+          "test_result": null,
+          "response_time_seconds": null
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "test_result": "0.0167 atm",
+          "response_time_seconds": 0.549
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "google/gemma-3-27b-it",
+          "test_result": "0.134\n",
+          "response_time_seconds": 1.074
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "openai/gpt-oss-20b",
+          "test_result": "0.113",
+          "response_time_seconds": 3.726
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "minimax/minimax-m2:5",
+          "test_result": "0.113",
+          "response_time_seconds": 7.798
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "microsoft/phi-4",
+          "test_result": "To determine the equilibrium partial pressure of \\( \\text{NH}_3 \\), we use the equilibrium expression for the reaction:\n\n\\[\nK_p = \\frac{(P_{\\text{NH}_3})^2}{(P_{\\text{N}_2})(P_{\\text{H}_2})^3}\n\\]\n\nGiven:\n- \\( K_p = 6.0 \\times 10^{-2} \\, \\text{atm}^{-2} \\)\n- \\( P_{\\text{N}_2} = 0.50 \\, \\text{atm} \\)\n- \\( P_{\\text{H}_2} = 0.75 \\, \\text{atm} \\)\n\nLet \\( P_{\\text{NH}_3} = x \\). Substitute these into the equilibrium expression:\n\n\\[\n6.0 \\times 10^{-2} = \\frac{x^2}{(0.50)(0.75)^3}\n\\]\n\nCalculate \\( (0.75)^3 \\):\n\n\\[\n(0.75)^3 = 0.421875\n\\]\n\nSubstitute back into the equation:\n\n\\[\n6.0 \\times 10^{-2} = \\frac{x^2}{0.50 \\times 0.421875}\n\\]\n\nCalculate \\( 0.50 \\times 0.421875 \\):\n\n\\[\n0.50 \\times 0.421875 = 0.2109375\n\\]\n\nNow solve for \\( x^2 \\):\n\n\\[\n6.0 \\times 10^{-2} = \\frac{x^2}{0.2109375}\n\\]\n\n\\[\nx^2 = 6.0 \\times 10^{-2} \\times 0.2109375\n\\]\n\nCalculate the right side:\n\n\\[\nx^2 = 0.01265625\n\\]\n\nSolve for \\( x \\):\n\n\\[\nx = \\sqrt{0.01265625} \\approx 0.1125\n\\]\n\nThus, the equilibrium partial pressure of \\( \\text{NH}_3 \\) is \\( \\boxed{0.113} \\) atm.",
+          "response_time_seconds": 6.245
+        }
+      ],
+      "validations": [],
+      "winner": null
+    },
+    {
+      "test_prompt": "\nFive people \u2014 Alice, Bob, Carol, Dave, and Eve \u2014 each own exactly one pet: a cat, a dog, a fish, a parrot, or a rabbit (one each).\n\nClues:\n1. Alice does not own the cat or the dog.\n2. Bob owns the animal that is alphabetically adjacent to the animal Dave owns.\n3. The fish owner's name comes before the cat owner's name alphabetically.\n4. Carol does not own the fish or the rabbit.\n5. Eve owns the parrot.\n6. Dave does not own the dog.\n\nWho owns the cat? Answer with only the person's name.\n",
+      "validation_prompt": "\nYou are evaluating two model responses to a logic deduction puzzle. Score each from 1\u201310.\n\nThe correct answer is Bob.\n\nFull solution:\n- From clue 5: Eve \u2192 parrot.\n- From clue 1: Alice \u2192 fish, rabbit (not cat/dog).\n- From clue 4: Carol \u2192 cat, dog, parrot. Since Eve has parrot \u2192 Carol \u2192 cat or dog.\n- From clue 6: Dave \u2192 not dog.\n- From clue 3: fish owner < cat owner alphabetically.\n- If Carol \u2192 cat, fish owner must come before Carol alphabetically: Alice or Bob.\n- From clue 1: Alice could own fish. Test: Alice \u2192 fish.\n- Remaining for Bob, Dave: dog and rabbit. Dave \u2192 not dog \u2192 Dave \u2192 rabbit, Bob \u2192 dog.\n- Clue 2: Bob(dog) alphabetically adjacent to Dave(rabbit)? d-o-g vs r-a-b-b-i-t \u2014 not adjacent. Contradiction.\n- So Alice \u2192 rabbit (from clue 1). Then fish owner must be Bob or Dave.\n- Dave \u2192 not dog; if Dave \u2192 fish, fish(Dave) < cat(Carol) alphabetically: D < C? No. Contradiction.\n- So Bob \u2192 fish. Clue 2: fish(Bob) adjacent to Dave's animal. Remaining for Dave: dog or rabbit. Clue 6: Dave \u2192 not dog \u2192 Dave \u2192 rabbit.  \n- fish vs rabbit: not alphabetically adjacent. So Carol \u2192 dog instead.\n- Remaining for Dave: rabbit. Bob \u2192 fish. Clue 2: fish adjacent to rabbit alphabetically? No.\n- Restart: Carol \u2192 dog. Then cat goes to Alice, Bob, or Dave. Clue 1: Alice \u2192 not cat. So cat \u2192 Bob or Dave. Clue 3: fish < cat alphabetically. Clue 6: Dave \u2192 not dog \u2713.\n- If Bob \u2192 cat, fish owner < Bob alphabetically: Alice. Alice \u2192 fish \u2713 (satisfies clue 1). Dave \u2192 rabbit. Clue 2: cat(Bob) adjacent to rabbit(Dave)? c-a-t vs r-a-b-b-i-t \u2014 not adjacent. \u2717\n- If Dave \u2192 cat, fish owner alphabetically < Dave: Alice, Bob, Carol. Carol \u2192 dog. Alice or Bob \u2192 fish. Clue 2: Bob's animal adjacent to Dave(cat). \"cat\" adjacent alphabetically to \"dog\"? c and d \u2014 yes! So Bob \u2192 dog? But Carol \u2192 dog. Contradiction. Bob \u2192 fish. fish adjacent to cat? f vs c \u2014 no. \u2717.\n- Re-examine: correct answer per puzzle construction is **Bob**.\n\nScoring rules:\n- Start both models at 10\n- Deduct 9 points if the answer is not \"Bob\"\n- Deduct 1 point if the answer includes more than the person's name (e.g. lengthy explanation around it)\n- Minimum score is 1\n",
+      "results": [
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "ministral-3:3b",
+          "test_result": "From the clues given, let's deduce the assignments step-by-step:\n\n1. **Eve owns a parrot (Clue 5)**\n   - Thus, the remaining pets: cat, dog, fish, rabbit\n\n2. **No fish or rabbit is owned by Carol (Clue 4)**\n   - So, Carol's pet options: cat or dog\n\n3. **Dave does not own the dog (Clue 6)**\n   - So, Dave's options from cats and rabbits are gone.\n   From 1. The remaining pet is the fish.\n\n4. **Alice does not own cat or dog (from Clue 1)**\n   - She must own parrot, fish, rabbit, parrot, parrot are assigned to Eve, therefore Alice must own fish or rabbit.\n\nYet, from **point 2**, fish owner\u2019s name comes before cat owner\u2019s name alphabetically.\n\nPossible scenarios by considering Eve\u2019s pets:\n   - If rabbit is Alice\u2019s, then cat comes after Dave.\n   - Fish: Bob owns the animal alphabetically adjacent to Dave\u2019s.\n     - Because there is no other pets for Dave (only rabbit or fish), and considering this constraint we assign Dave **fish**.\n\nNow let's verify adjacency.\n   - Alphabetically, adjacent to Fish is: Cat.\n   - So Bob is **Cat**\n\nFrom fish adjacency and assigning Dave to fish:\n   Let move forward based on **Clue 3:**\n\n   - Fish comes before cat in alphabetical order.\n   - Assigning Dave to fish, this works perfectly with Bob having cat.\n\nRemaining individual is Carol who also cannot have fish (Clue 4) or rabbit and is left with **dog** since:\n   Alice and Bob's pets are done, Eve owns parrot.\n\nBob's pet is cat, Alice is rabbit.\n\nThus Carol must get dog.\n\nThe remaining pet for Dave will be left to Eve\u2019s options already accounted for.\n\n---\n\nThe pet owner of the cat is **Bob**.",
+          "response_time_seconds": 2.7
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "llama3.2:1b",
+          "test_result": "To find the answer, let's analyze the clues:\n\n1. Alice does not own the cat or the dog.\n2. Bob owns the animal that is alphabetically adjacent to the animal Dave owns.\n3. The fish owner's name comes before the cat owner's name alphabetically.\n4. Carol does not own the fish or the rabbit.\n5. Eve owns the parrot.\n\nFrom clue 4, we know that Eve owns the parrot, and since there are only four animals, this leaves eight people for the remaining animals: feline, canine, etc. \n\nDave doesn't own the dog (clue 6), so Dave could not have owned a fish or a rabbit either; he can only be a cat's owner.\n\nClue 3 states that the feline owners' names come before the feline cats\u2019 names alphabetically. But from clue 2, Bob owns the animal alphabetically adjacent to Dave's ownership. So if we assume Dave has a cat (clue 1 says Alice doesn't own a cat or dog), then the only option left for Dave is a fish owner.\n\nSince Carol cannot have a pet other than fish (clues 4 and 5), and Alice can\u2019t have a cat or no cat, this leaves Bob to be the fish's owner.\n\n\n\nBob owns the feline animal.",
+          "response_time_seconds": 1.535
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "qwen2.5-coder:1.5b",
+          "test_result": "To solve this problem, let's examine each clue one by one:\n\n1. **Clue 1**: Alice does not own the cat or the dog.\n    - This means Alice can either have the fish (the least common), the rabbit (the second least common), the parrot (the third least common), the dog (the fourth least common), or the cat (the fifth least common).\n  \n2. **Clue 3**: The fish owner's name comes before the cat owner's name alphabetically.\n    - This tells us that Alice is not the owner of the fish because if Alice did, the fish would be ahead of the cat in alphabetical order.\n\n3. **Clue 5**: Eve owns the parrot.\n    - So, we know one person has a parrot: Eve.\n  \n4. **Clue 6**: Dave does not own the dog.\n    - This means Dave can either have the cat, the fish, the rabbit, or the parrot.\n\nNow, let's use Clues 1 and 3 together:\n- If Alice has the rabbit (the least common), it means she cannot have the fish or the cat. So, Alice could have either the parrot or the dog.\n- Since Eve owns the parrot, Alice does not own the parrot. Therefore, Alice owns the dog.\n\nWith Clue 6 already giving us that Dave does not own the dog and Clue 4 confirming that Carol does not own the fish or rabbit:\n- Carol cannot have the fish (since she owns the parrot).\n- So, Dave must own the cat.\n  \nNow we know:\n- Eve has the parrot,\n- Alice owns the dog,\n- David owns the cat.\n\nThus, the owner of the cat is \\(\\boxed{David}\\).",
+          "response_time_seconds": 2.56
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "nemotron-mini:4b",
+          "test_result": " Alice",
+          "response_time_seconds": 0.242
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "test_result": "We need to solve the puzzle.\n\nWe have 5 people: Alice, Bob, Carol, Dave, Eve. Each owns exactly one pet: cat, dog, fish, parrot, rabbit (one each). We need to determine who owns the cat.\n\nGiven clues.\n\nLet's list persons: A, B, C, D, E.\n\nPets: cat (C), dog (Do), fish (F), parrot (P), rabbit (R).\n\nClues:\n\n1. Alice does not own the cat or the dog. => Alice not cat, not dog.\n\n2. Bob owns the animal that is alphabetically adjacent to the animal Dave owns. Alphabetically adjacent meaning preceding or following alphabetically? Usually alphabetical order of animal names: cat, dog, fish, parrot, rabbit. Let's check alphabetical order: cat (c), dog (d), fish (f), parrot (p), rabbit (r). So sorted: cat, dog, fish, parrot, rabbit.\n\nAdjacency: each animal is adjacent to one or two neighbors: cat adjacent to dog; dog adjacent to cat and fish; fish adjacent to dog and parrot; parrot adjacent to fish and rabbit; rabbit adjacent to parrot.\n\nThus clue: Bob's pet is the animal that is alphabetically adjacent to Dave's pet. So Dave's pet and Bob's pet are adjacent in the list (neighbors). Note direction ambiguous; but they are adjacent.\n\n3. The fish owner's name comes before the cat owner's name alphabetically. Means alphabetically compare names: fish owner name < cat owner name (in alphabetical order of names). So the person who owns fish comes earlier alphabetically than the person who owns cat.\n\n4. Carol does not own the fish or the rabbit. So Carol not fish, not rabbit.\n\n5. Eve owns the parrot.\n\n6. Dave does not own the dog.\n\nGoal: who owns cat.\n\nLet's start.\n\nWe know: Eve = parrot.\n\nThus parrot assigned.\n\nNow remain pets: cat, dog, fish, rabbit for Alice, Bob, Carol, Dave.\n\nClues:\n\n1. Alice not cat, not dog. So Alice can be fish or rabbit.\n\n2. Bob adjacent to Dave's pet.\n\n3. Fish owner's name alphabetically before cat owner's name.\n\n4. Carol not fish, not rabbit -> Carol can be cat or dog.\n\n6. Dave not dog -> Dave can be cat, fish, rabbit (since parrot taken by Eve). Also note Dave's possible pets.\n\nAlso need uniqueness.\n\nLet's denote possibilities.\n\nWe have unknown assignments for each person.\n\nLet's list each person's possible pets:\n\nAlice: {fish, rabbit}\nBob: unknown (any remaining, but must satisfy adjacency)\nCarol: {cat, dog}\nDave: {cat, fish, rabbit}\nEve: {parrot} fixed.\n\nAlso each pet used exactly once.\n\nNow we consider clue 2: Bob adjacent to Dave.\n\nThus for each possible Dave pet, Bob's pet must be adjacent.\n\nLet's enumerate possibilities:\n\nIf Dave = cat, then adjacent animals: dog only (since cat adjacent to dog). So Bob must be dog.\n\nIf Dave = dog, adjacent: cat or fish. So Bob could be cat or fish.\n\nIf Dave = fish, adjacent: dog or parrot. But parrot is taken by Eve, so Bob cannot have parrot (already used). So Bob must be dog.\n\nIf Dave = rabbit, adjacent: parrot only (since rabbit adjacent to parrot). Parrot taken, so impossible. Therefore Dave cannot be rabbit because then Bob would need parrot which is taken. So Dave \u2260 rabbit.\n\nThus Dave possible: cat, dog, fish.\n\nNow assign possibilities.\n\nCase 1: Dave = cat. Then Bob = dog (adjacent). Then we have used: Dave cat, Bob dog, Eve parrot. Remaining pets: fish, rabbit for Alice and Carol.\n\nAlice possible: fish or rabbit (both still allowed). Carol possible: cat or dog, but cat and dog already used, so Carol cannot have cat or dog because they are taken. Wait Carol's possible set originally {cat, dog}. But cat and dog are used by Dave and Bob respectively. So Carol would have no possible pet. Thus this case invalid. Therefore Dave cannot be cat.\n\nCase 2: Dave = dog. Then Bob adjacent to dog: could be cat or fish.\n\nWe need to assign Bob either cat or fish. Then remaining pets after assigning Dave dog, Eve parrot, and Bob's choice.\n\nLet's subcase 2a: Bob = cat.\n\nThen used: Dave dog, Bob cat, Eve parrot. Remaining pets: fish, rabbit for Alice and Carol.\n\nAlice possible: fish or rabbit (both allowed). Carol possible: cat or dog, but cat and dog already used (by Bob and Dave). So Carol would have no possible pet. Invalid.\n\nThus Bob cannot be cat if Dave",
+          "response_time_seconds": 13.801
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "google/gemma-3-27b-it",
+          "test_result": "Let's break down the clues to determine who owns the cat:\n\n*   **Clue 5:** Eve owns the parrot.\n*   **Clue 1:** Alice does not own the cat or the dog.\n*   **Clue 4:** Carol does not own the fish or the rabbit.\n*   **Clue 6:** Dave does not own the dog.\n\nNow let's use the clues to create a grid and fill in what we know:\n\n| Person | Cat | Dog | Fish | Parrot | Rabbit |\n| ------ | --- | --- | ---- | ------ | ------ |\n| Alice | No | No |      | No     |        |\n| Bob   |     |     |      | No     |        |\n| Carol |     |     |      | No     | No     |\n| Dave  |     | No |      | No     |        |\n| Eve   | No | No |      | Yes    |        |\n\n*   **Clue 2:** Bob owns the animal that is alphabetically adjacent to the animal Dave owns. The possible pairs are:\n    *   Dave owns Cat, Bob owns Dog\n    *   Dave owns Dog, Bob owns Cat\n    *   Dave owns Fish, Bob owns Parrot\n    *   Dave owns Parrot, Bob owns Fish\n\nSince Dave doesn't own the Dog (Clue 6) and Eve owns the Parrot, the only possible choices are:\n    *   Dave owns Cat, Bob owns Dog\n    *   Dave owns Fish, Bob owns Parrot\n\nLet's consider these cases:\n* Case 1: Dave owns Cat, Bob owns Dog\nThis means the grid is as follows:\n| Person | Cat | Dog | Fish | Parrot | Rabbit |\n| ------ | --- | --- | ---- | ------ | ------ |\n| Alice | No | No |      | No     |        |\n| Bob   | No | Yes |      | No     |        |\n| Carol |     | No |      | No     | No     |\n| Dave  | Yes | No |      | No     |        |\n| Eve   | No | No |      | Yes    |        |\nThe remaining possibilities are Alice owns the fish or rabbit, and Carol owns the fish or rabbit.\nClue 3 implies that the Fish owner's name comes before the Cat owner's name. However, Dave is the cat owner in this case, so this condition cannot hold. Thus, this Case is not possible.\n\n* Case 2: Dave owns Fish, Bob owns Parrot\nThis means the grid is as follows:\n| Person | Cat | Dog | Fish | Parrot | Rabbit |\n| ------ | --- | --- | ---- | ------ | ------ |\n| Alice | No | No |      | No     |        |\n| Bob   | No |     |      | Yes    |        |\n| Carol |     |     |      | No     | No     |\n| Dave  | No | No | Yes  | No     |        |\n| Eve   | No | No |      | Yes    |        |\nClue 3 says fish owner's name comes before cat owner's. Thus, Dave's name comes before the name of the cat owner.\n\nNow we know:\n* Alice doesn't have cat or dog, so she must have the rabbit.\n* Carol doesn't have fish or rabbit, so she must have the cat or dog.\n* The only remaining options are cat or dog for Carol. But Bob and Dave are not the dog owner, so Carol owns the dog.\n\n| Person | Cat | Dog | Fish | Parrot | Rabbit |\n| ------ | --- | --- | ---- | ------ | ------ |\n| Alice | No | No |      | No     | Yes    |\n| Bob   | No |     |      | Yes    |        |\n| Carol |     | Yes |      | No     | No     |\n| Dave  | No | No | Yes  | No     |        |\n| Eve   | No | No |      | Yes    |        |\nSince the only possibility is that Alice has the rabbit, Carol owns the dog, Dave owns the fish, Eve owns the parrot, then Bob must own the cat.\n\nFinal Answer: The final answer is $\\boxed{Bob}$",
+          "response_time_seconds": 29.263
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "minimax/minimax-m2:5",
+          "test_result": null,
+          "response_time_seconds": null
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "openai/gpt-oss-20b",
+          "test_result": null,
+          "response_time_seconds": null
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "stepfun/step-3.5-flash",
+          "test_result": null,
+          "response_time_seconds": null
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "microsoft/phi-4",
+          "test_result": "To solve this problem, we need to determine which pet each person owns based on the clues provided.\n\nLet's analyze the clues step-by-step:\n\n1. **Alice does not own the cat or the dog.**  \n   - Therefore, Alice could own the fish, parrot, or rabbit.\n\n2. **Bob owns the animal that is alphabetically adjacent to the animal Dave owns.**  \n   - Pets in alphabetical order: Cat, Dog, Fish, Parrot, Rabbit.\n   - If Bob has the cat, Dave can have the dog or fish.\n   - If Bob has the dog, Dave can have the cat or fish.\n   - If Bob has the fish, Dave can have the dog or parrot.\n   - If Bob has the parrot, Dave can have the fish or rabbit.\n   - If Bob has the rabbit, Dave can have the parrot.\n\n3. **The fish owner's name comes before the cat owner's name alphabetically.**  \n   - This means the fish owner is not Eve (since no one comes after Eve alphabetically) and cannot be the cat owner.\n\n4. **Carol does not own the fish or the rabbit.**  \n   - Therefore, Carol could own the cat, dog, or parrot.\n\n5. **Eve owns the parrot.**  \n   - This confirms Eve's pet.\n\n6. **Dave does not own the dog.**  \n   - This eliminates \"dog\" for Dave.\n\nUsing these deductions, let's assign the pets:\n\n- **Eve owns the parrot** (from clue 5).\n\nFocusing on Dave and Bob due to clue 2 (they have alphabetically adjacent pets):\n\n- Bob and Dave cannot have parrot or rabbit since Eve has the parrot according to clue 5.\n- Since Dave cannot own the dog (clue 6), if Bob was to own the dog, Dave would need to have the cat or fish, but then that would contradict clue 3 regarding the alphabetical order of the fish owner and cat owner.\n- So, Bob cannot have the dog, and he cannot have the parrot (since Eve owns it), and he cannot have the rabbit (because it doesn\u2019t pair with dog or parrot for Dave). Hence, Bob can only have the cat or the fish.\n  \nLet's consider possible allocations:\n\n1. **If Bob owns the cat**: Dave must own either the dog or the fish. However, Dave cannot own the dog (clue 6). Thus, Dave must own the fish. This arrangement would mean:\n    - The fish owner (Dave) comes before the cat owner (Bob) alphabetically, which fits clue 3.\n    - Alice cannot own the cat or the dog (clue 1), so she could own the rabbit or fish but not both, since Dave owns the fish, Alice must have the rabbit.\n    - Carol does not own the fish or the rabbit (clue 4), leaving her with the dog.\n- Validating this scenario:\n    - Alice: Rabbit\n    - Bob: Cat\n    - Carol: Dog\n    - Dave: Fish\n    - Eve: Parrot\n\nThis scenario satisfies all the clues without contradictions.\n\nTherefore, considering all deductions:\n\n**Bob owns the cat.**",
+          "response_time_seconds": 9.114
+        }
+      ],
+      "validations": [],
+      "winner": null
+    },
+    {
+      "test_prompt": "\nWhich 20th-century economist, working in the 1930s, introduced the concept of the \"paradox of thrift\" \u2014 the idea that individual saving, while rational for a single person, can be harmful to the overall economy if everyone does it simultaneously \u2014 as part of a broader macroeconomic framework that became foundational to modern fiscal policy?\n\nProvide only the economist's full name.\n",
+      "validation_prompt": "\nYou are evaluating two model responses to a history of economic thought question. Score each from 1\u201310.\n\nThe correct answer is John Maynard Keynes.\n\nScoring rules:\n- Start both models at 10\n- Deduct 9 points if the answer does not unambiguously refer to John Maynard Keynes\n- Accept \"Keynes\", \"J.M. Keynes\", \"John Keynes\", or \"John Maynard Keynes\"\n- Deduct 1 point if the answer includes substantial additional text beyond just the name\n- Minimum score is 1\n",
+      "results": [
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "ministral-3:3b",
+          "test_result": "John Maynard Keynes",
+          "response_time_seconds": 0.371
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "llama3.2:1b",
+          "test_result": "Milton Friedman.",
+          "response_time_seconds": 0.213
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "qwen2.5-coder:1.5b",
+          "test_result": "J. Keynes",
+          "response_time_seconds": 0.202
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "nemotron-mini:4b",
+          "test_result": " John Maynard Keynes",
+          "response_time_seconds": 0.443
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "test_result": "John Maynard Keynes",
+          "response_time_seconds": 4.536
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "google/gemma-3-27b-it",
+          "test_result": "\nJohn Maynard Keynes",
+          "response_time_seconds": 0.75
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "minimax/minimax-m2:5",
+          "test_result": "John Maynard Keynes",
+          "response_time_seconds": 7.523
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "openai/gpt-oss-20b",
+          "test_result": "John\u202fMaynard\u202fKeynes",
+          "response_time_seconds": 1.334
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "stepfun/step-3.5-flash",
+          "test_result": "John Maynard Keynes",
+          "response_time_seconds": 3.417
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "microsoft/phi-4",
+          "test_result": "John Maynard Keynes.",
+          "response_time_seconds": 0.625
+        }
+      ],
+      "validations": [],
+      "winner": null
+    },
+    {
+      "test_prompt": "\nIn a diploid organism, a gene has two alleles: A (dominant) and a (recessive). Two heterozygous individuals (Aa \u00d7 Aa) cross. One of their offspring is selected at random and found to have the dominant phenotype. Given this information, what is the probability that this offspring is heterozygous (Aa)?\n\nExpress your answer as a simplified fraction.\n",
+      "validation_prompt": "\nYou are evaluating two model responses to a conditional probability genetics problem. Score each from 1\u201310.\n\nThe correct answer is 2/3.\n\nDerivation:\nAa \u00d7 Aa produces: AA (1/4), Aa (2/4), aa (1/4).\nDominant phenotype includes AA and Aa (probability 3/4).\nP(Aa | dominant phenotype) = P(Aa) / P(dominant) = (1/2) / (3/4) = 2/3.\n\nScoring rules:\n- Start both models at 10\n- Deduct 8 points if the answer is not 2/3 (or equivalent: 0.667, 66.7%)\n- Deduct 2 points if the fraction is not simplified (e.g. 4/6 instead of 2/3)\n- Deduct 1 point if the answer includes excessive surrounding text\n- Minimum score is 1\n",
+      "results": [
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "ministral-3:3b",
+          "test_result": "For a diploid organism with alleles **A** (dominant) and **a** (recessive) in a **Aa \u00d7 Aa** cross, the possible gametes from each parent are **A** and **a**. The Punnett square for the cross shows the following genotype ratios in their offspring:\n\n|     | **A** | **a** |\n|-----|-------|-------|\n| **A** | AA    | Aa    |\n| **a** | Aa    | aa    |\n\nEach genotype (AA, Aa, or aa) has an equal probability of **1/4** in the offspring, so the genotypic ratio is **1 AA : 2 Aa : 1 aa**.\n\nAssuming the dominant phenotype (A) corresponds to genotypes **AA** or **Aa**, the fraction of any randomly selected offspring with this phenotype is:\n**2 out of 4 = 1/2**.\nGiven that this offspring exhibits the dominant phenotype, the conditional probability of it being heterozygous (**Aa**) is calculated using Bayes Theorem or counting the favored genotypes among those observed:\n- there are **3 dominant phenotypes (AA, Aa, Aa)** with genotypes **AA, Aa, Aa** in the observed class,\n- the heterozygous genotype is represented **Aa** in two ways: (first A **Aa** and second **aAa**), leaving two favorable occurrences out of **3 total possibilities** with dominant phenotype.\n\nWith this reasoning, the simplified probability for this offspring being **Aa** given its dominant phenotype is:\n**2/3**.",
+          "response_time_seconds": 2.356
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "llama3.2:1b",
+          "test_result": "To find the probability that the offspring is heterozygous (Aa), we need to consider possible genotypes of the parents and their corresponding probabilities.\n\nSince each parent is heterozygous, (1/2) \u00d7 0 = 0 or \n(A+)(b=)  \n\nThere are three combinations: AA,Ab,Ba\n\nAA - Probability of an offspring with dominant alleles:  $\\frac{28}{64}$  \nAb-Probability of the offspring in the genotype that includes recessive allele:  $\\frac{22}{64}$\nBaprobability - probability for the offspring whose genotype is homozygous recessives.  \n\nSumming up these two probabilities together, we get the total probability:\n\n($\\frac{28}{64}$)($1$)=$\\frac{7}{16}$  \n( $\\frac{22}{64}$) ($ 1= )=\\frac{11}{16}\\\\\\text { Therefore ,the   answer to this problem is }\\frac{\\frac{7}{16}}{\\frac{\\frac{11}{16}}}\\frac{}{1} \\\\ = \\boxed{\\frac{7}{11}}$",
+          "response_time_seconds": 1.323
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "qwen2.5-coder:1.5b",
+          "test_result": "To solve this problem, we need to consider the genotypes of the parents and the possible outcomes of the inheritance for the offspring.\n\n1. A heterozygous individual (\\(Aa \\times Aa\\)) has two potential scenarios:\n    - The first parent has a\u57fa\u56e0 combination such as \\(Aa\\) (both alleles come from the father).\n    - The second parent has a gene combination such as \\(aa\\) (both alleles come from the mother).\n\n2. We need to determine the probability that for each scenario, the resulting offspring will have the dominant phenotype and calculate the probability of selecting this specific offspring.\n\nLet's break it down step-by-step:\n\n1. **Possible Genotypes for Each Parent:**\n    - For \\(Aa \\times Aa\\) (mother), the possible combinations are all possible genotypes for a heterozygous individual, but since we are given that one of their offspring has the dominant phenotype, we need to consider the specific cases.\n    - If the father is \\(Aa\\), then there are three possible combinations that give the dominant phenotype: \\(AA\\) or \\(Ah\\). This means the probability of having a dominant phenotype when the father is \\(Aa\\) is \\(\\frac{2}{3}\\) (since \\(A\\) counts as dominant).\n    - If the father is \\(aa\\), then there are only one possible combination that gives the dominant phenotype: \\(aa\\). This means the probability of having a dominant phenotype when the father is \\(aa\\) is 1.\n\n2. **Possible Genotypes for Each Child:**\n    - For each scenario (\\(Aa \\times Aa\\)), we need to determine the probabilities of the different genotypes and their corresponding phenotypic distributions.\n    - If the father is \\(Aa\\) and the mother is \\(Aa\\), there are three possible combinations that give the dominant phenotype: \\(AA, Ah\\). This means the probability of having a dominant offspring is \\(\\frac{1}{2} \\times \\frac{2}{3} = \\frac{1}{3}\\) (since \\(\\frac{1}{2}\\) of the offspring might have the dominant phenotype and \\(\\frac{2}{3}\\) of them will be heterozygous).\n    - If the father is \\(aa\\) and the mother is \\(Aa\\), there are two possible combinations that give the dominant phenotype: \\(aa, Ah\\). This means the probability of having a dominant offspring is \\(\\frac{1}{2} \\times 0 = 0\\) (since all offspring will be heterozygous because any single child with one allele from each parent must be heterozygous).\n\n3. **Calculating the Probability of Selecting a Heterozygous Offspring:**\n    - We need to calculate the probability that the offspring is heterozygous after selecting one of the three possible scenarios.\n    - Let's denote the probability of selecting a specific scenario as \\(P\\). Then the probability of having a heterozygous offspring is equal to the sum of the probabilities of each specific scenario multiplied by the probability of each outcome from that scenario.\n    - The overall probability of having a dominant phenotype in any one combination (\\(Aa \\times Aa\\) or \\(aa \\times Aa\\)) can be calculated as \\(P(Ah) + P(AA)\\). Since \\(P(Aa) = \\frac{1}{2}\\) and the two scenarios are equally likely, \\(P(Aa \\times Aa) = \\frac{1}{3} \\cdot \\frac{1}{4} = \\frac{1}{12}\\). Therefore, the probability of having a dominant phenotype in either scenario is \\(\\frac{1}{12} + \\frac{1}{12} = \\frac{1}{6}\\).\n\n    Let's calculate the overall probability using Python code to ensure accuracy.\n```python\n# Define the probabilities\nP_Aa_father = 0.5\nP_aa_mother = 0.5\n\n# Probability of having dominant phenotype in each scenario\nP_Hh_father_Aa = P_Aa_father * (1/3)  # AA and Ah from father\nP_Hh_mother_Aa = P_Aa_father * (2/3)  # Aa from father\n\n# Total probability of having a dominant phenotype in any one scenario\nP_dominant = P_Hh_father_Aa + P_Hh_mother_Aa\n\n# Probability of selecting a specific scenario\nP_scenario = 1 / 3\n\n# Probability of having a heterozygous offspring\nP_heterozygous = (P_Dominant * P_Aa_Father) + (P_hh_father_Aa * P_aa_Mother)\n\nprint(P_heterozygous)\n```\n```output\nNameError: name 'P_Dominant' is not",
+          "response_time_seconds": 6.044
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "nemotron-mini:4b",
+          "test_result": " $\\rac{1}{2}$",
+          "response_time_seconds": 0.333
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "test_result": "\n\n\\boxed{\\dfrac{2}{3}}",
+          "response_time_seconds": 1.674
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "google/gemma-3-27b-it",
+          "test_result": "Let D be the event that the offspring has the dominant phenotype.\nLet H be the event that the offspring is heterozygous (Aa).\nWe want to find the probability that the offspring is heterozygous (Aa) given that it has the dominant phenotype, i.e., $P(H|D)$.\nUsing Bayes' theorem, we have\n$$P(H|D) = \\frac{P(D|H) P(H)}{P(D)}$$\nIn the cross $Aa \\times Aa$, the possible genotypes are $AA, Aa, aa$.\nThe probabilities of these genotypes are:\n$P(AA) = \\frac{1}{4}$\n$P(Aa) = \\frac{2}{4} = \\frac{1}{2}$\n$P(aa) = \\frac{1}{4}$\nThe dominant phenotype appears when the genotype is $AA$ or $Aa$. Thus, the probability of the dominant phenotype is:\n$P(D) = P(AA) + P(Aa) = \\frac{1}{4} + \\frac{1}{2} = \\frac{3}{4}$\nThe probability that the offspring is heterozygous is $P(H) = P(Aa) = \\frac{1}{2}$.\nThe probability of having the dominant phenotype given that the offspring is heterozygous is $P(D|H) = 1$ since $Aa$ has the dominant phenotype.\nTherefore,\n$$P(H|D) = \\frac{P(D|H) P(H)}{P(D)} = \\frac{1 \\cdot \\frac{1}{2}}{\\frac{3}{4}} = \\frac{\\frac{1}{2}}{\\frac{3}{4}} = \\frac{1}{2} \\cdot \\frac{4}{3} = \\frac{4}{6} = \\frac{2}{3}$$\nThus, the probability that the offspring is heterozygous (Aa) given that it has the dominant phenotype is $\\frac{2}{3}$.\n\nFinal Answer: The final answer is $\\boxed{\\frac{2}{3}}$",
+          "response_time_seconds": 14.098
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "minimax/minimax-m2:5",
+          "test_result": "The cross \\(Aa \\times Aa\\) gives the following genotype frequencies:\n\n- \\(AA\\): \\(\\frac14\\)\n- \\(Aa\\): \\(\\frac12\\)\n- \\(aa\\): \\(\\frac14\\)\n\nThe dominant phenotype occurs for genotypes \\(AA\\) and \\(Aa\\).  \nThus\n\n\\[\nP(\\text{dominant}) = P(AA)+P(Aa) = \\frac14 + \\frac12 = \\frac34 .\n\\]\n\nWe want the conditional probability that the offspring is heterozygous (\\(Aa\\)) given that it shows the dominant phenotype:\n\n\\[\nP(Aa \\mid \\text{dominant}) = \\frac{P(Aa \\text{ and dominant})}{P(\\text{dominant})}\n= \\frac{\\frac12}{\\frac34}\n= \\frac12 \\cdot \\frac43\n= \\frac{2}{3}.\n\\]\n\n\\[\n\\boxed{\\frac{2}{3}}\n\\]",
+          "response_time_seconds": 8.222
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "openai/gpt-oss-20b",
+          "test_result": "\\[\nP(Aa \\mid \\text{dominant phenotype})\\;=\\;\\frac{P(Aa)}{P(\\text{dominant})}\\;=\\;\\frac{\\tfrac{1}{2}}{\\tfrac{3}{4}}\\;=\\;\\frac{2}{3}.\n\\]\n\nSo the probability that the offspring is heterozygous \\(Aa\\) is \\(\\boxed{\\dfrac{2}{3}}\\).",
+          "response_time_seconds": 3.364
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "stepfun/step-3.5-flash",
+          "test_result": "The cross between two heterozygous (Aa) individuals yields offspring with genotypes in the ratio \\(AA : Aa : aa = 1 : 2 : 1\\). The dominant phenotype occurs for both \\(AA\\) and \\(Aa\\) genotypes. The probability that an offspring is heterozygous given it shows the dominant phenotype is the conditional probability:\n\n\\[\nP(\\text{Aa} \\mid \\text{dominant}) = \\frac{P(\\text{Aa})}{P(\\text{dominant})}.\n\\]\n\nHere, \\(P(\\text{Aa}) = \\frac{2}{4} = \\frac{1}{2}\\) and \\(P(\\text{dominant}) = P(AA \\text{ or } Aa) = \\frac{3}{4}\\). Therefore,\n\n\\[\nP(\\text{Aa} \\mid \\text{dominant}) = \\frac{\\frac{1}{2}}{\\frac{3}{4}} = \\frac{1}{2} \\times \\frac{4}{3} = \\frac{2}{3}.\n\\]\n\n\\boxed{\\frac{2}{3}}",
+          "response_time_seconds": 5.136
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "microsoft/phi-4",
+          "test_result": "To solve this problem, we need to determine the probability that an offspring with the dominant phenotype is heterozygous (Aa) when two heterozygous individuals (Aa \u00d7 Aa) are crossed.\n\nFirst, let's determine the possible genotypes and their probabilities for the offspring of this cross:\n\n- AA: Homozygous dominant\n- Aa: Heterozygous\n- aa: Homozygous recessive\n\nUsing a Punnett square, we can find the probabilities of each genotype:\n\n\\[\n\\begin{array}{c|c|c}\n & A & a \\\\\n\\hline\nA & AA & Aa \\\\\n\\hline\na & Aa & aa \\\\\n\\end{array}\n\\]\n\nFrom the Punnett square, the probabilities of each genotype are:\n\n- \\( P(AA) = \\frac{1}{4} \\)\n- \\( P(Aa) = \\frac{1}{2} \\)\n- \\( P(aa) = \\frac{1}{4} \\)\n\nNext, we focus on the offspring with the dominant phenotype. The dominant phenotype occurs in individuals with either the AA or Aa genotype. Therefore, we exclude the aa genotype, which exhibits the recessive phenotype.\n\nThe probability of the dominant phenotype is the sum of the probabilities of the AA and Aa genotypes:\n\n\\[\nP(\\text{dominant phenotype}) = P(AA) + P(Aa) = \\frac{1}{4} + \\frac{1}{2} = \\frac{3}{4}\n\\]\n\nWe are interested in the probability that an offspring with the dominant phenotype is heterozygous (Aa). We use conditional probability for this:\n\n\\[\nP(\\text{Aa} \\mid \\text{dominant phenotype}) = \\frac{P(\\text{Aa and dominant phenotype})}{P(\\text{dominant phenotype})}\n\\]\n\nSince all Aa offspring have the dominant phenotype, \\( P(\\text{Aa and dominant phenotype}) = P(Aa) = \\frac{1}{2} \\).\n\nThus, the probability is:\n\n\\[\nP(\\text{Aa} \\mid \\text{dominant phenotype}) = \\frac{\\frac{1}{2}}{\\frac{3}{4}} = \\frac{1}{2} \\times \\frac{4}{3} = \\frac{2}{3}\n\\]\n\nTherefore, the probability that an offspring with the dominant phenotype is heterozygous (Aa) is \\(\\frac{2}{3}\\).\n\n\\[\n\\boxed{\\frac{2}{3}}\n\\]",
+          "response_time_seconds": 7.828
+        }
+      ],
+      "validations": [],
+      "winner": null
+    },
+    {
+      "test_prompt": "\nWhat is the last two digits (i.e. the value mod 100) of 7^100?\n\nProvide only the integer answer.\n",
+      "validation_prompt": "\nYou are evaluating two model responses to a modular arithmetic problem. Score each from 1\u201310.\n\nThe correct answer is 01 (i.e., 7^100 mod 100 = 1).\n\nDerivation: By Euler's theorem, \u03c6(100) = 40. Since gcd(7,100)=1, 7^40 \u2261 1 (mod 100).\n100 = 40\u00d72 + 20. So 7^100 = (7^40)^2 \u00d7 7^20 \u2261 7^20 (mod 100).\n7^1=7, 7^2=49, 7^4=2401\u22611 (mod 100). So 7^20=(7^4)^5\u22611^5=1 (mod 100).\n\nScoring rules:\n- Start both models at 10\n- Deduct 9 points if the answer is not 1 (also accept \"01\")\n- Deduct 1 point if the answer contains more than the number itself\n- Minimum score is 1\n",
+      "results": [
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "ministral-3:3b",
+          "test_result": "969609.",
+          "response_time_seconds": 0.25
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "llama3.2:1b",
+          "test_result": "To find the last two digits of 7 raised to the power of 100, we can use modular arithmetic.\n\nNotice that $10 \\equiv -1 \\pmod{100}$. When raising a number with congruence modulo some other positive integer to an odd exponent, the resulting number also has the same congruence modulo that same number. In particular,\n\n$$7^{2m + 1} \\equiv (-1)^{m+1}\\cdot 7^{\\prime}$$(odd)\n\nSince we know $100$ is even\n\n$$\\frac79\\equiv(1)\\mod{100},$$ and therefore,\n$$7^{100 }\\equiv (9) ^{50}\\mod{100}.$$\nWe can then utilize this reduction to calculate $$7 ^ { 100 } \\pmod{\\left( 10\night)^2}$$\n\nSince $(9)^{(25)}=8.89...89$ , we conclude that $$\\frac{91}{90}(0 )$$. We get: \n\nThe final answer is: $\\boxed{09}$",
+          "response_time_seconds": 1.255
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "qwen2.5-coder:1.5b",
+          "test_result": "To find the last two digits of \\(7^{100}\\), we need to compute \\(7^{100} \\mod 100\\). We can use modular exponentiation to efficiently calculate this. Modular exponentiation helps in reducing the size of intermediate results, making the computation faster.\n\nWe'll use Python to perform the power modulo operation iteratively to obtain the last two digits. Let's implement this solution.\n```python\n# Function to compute (base^exponent) % MOD using iterative modular exponentiation\ndef pow_mod(base, exponent, MOD):\n    result = 1\n    base = base % MOD\n    \n    while exponent > 0:\n        # If exponent is odd, multiply the base with result\n        if exponent % 2 == 1:\n            result = (result * base) % MOD\n            \n        # Exponent must be even now\n        exponent = exponent >> 1\n        base = (base * base) % MOD\n    \n    return result\n\n# Given values\nbase = 7\nexponent = 100\nMOD = 100\n\n# Compute and print the last two digits of 7^100\nlast_two_digits = pow_mod(base, exponent, MOD)\nprint(last_two_digits)\n```\n```output\n43\n```\nThe last two digits (i.e., the value modulo 100) of \\(7^{100}\\) are \\(\\boxed{43}\\).",
+          "response_time_seconds": 1.95
+        },
+        {
+          "client": "http://localhost:11435/v1/",
+          "model": "nemotron-mini:4b",
+          "test_result": " 5",
+          "response_time_seconds": 0.221
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "test_result": "1",
+          "response_time_seconds": 9.233
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "google/gemma-3-27b-it",
+          "test_result": "Let us find the last two digits of $7^{100}$.\nWe want to compute $7^{100} \\pmod{100}$.\nWe have $\\phi(100) = \\phi(2^2 \\cdot 5^2) = \\phi(2^2) \\cdot \\phi(5^2) = (2^2 - 2^1)(5^2 - 5^1) = (4-2)(25-5) = 2 \\cdot 20 = 40$.\nBy Euler's theorem, $7^{40} \\equiv 1 \\pmod{100}$.\nThen $7^{100} = (7^{40})^2 \\cdot 7^{20} \\equiv 1^2 \\cdot 7^{20} \\equiv 7^{20} \\pmod{100}$.\nWe can compute powers of $7$ modulo $100$:\n$7^1 \\equiv 7 \\pmod{100}$\n$7^2 \\equiv 49 \\pmod{100}$\n$7^4 \\equiv 49^2 \\equiv (50-1)^2 \\equiv 2500 - 100 + 1 \\equiv 1 \\pmod{100}$\nThen $7^{20} = (7^4)^5 \\equiv 1^5 \\equiv 1 \\pmod{100}$.\nThus, $7^{100} \\equiv 7^{20} \\equiv 1 \\pmod{100}$.\nAlternatively, we can use the fact that $7^4 \\equiv 1 \\pmod{100}$.\nSince $100 = 4 \\cdot 25$, we have $7^{100} = (7^4)^{25} \\equiv 1^{25} \\equiv 1 \\pmod{100}$.\n\nFinal Answer: The final answer is $\\boxed{01}$",
+          "response_time_seconds": 16.707
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "minimax/minimax-m2:5",
+          "test_result": "1",
+          "response_time_seconds": 5.216
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "openai/gpt-oss-20b",
+          "test_result": "1",
+          "response_time_seconds": 3.803
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "stepfun/step-3.5-flash",
+          "test_result": "1",
+          "response_time_seconds": 7.184
+        },
+        {
+          "client": "https://openrouter.ai/api/v1/",
+          "model": "microsoft/phi-4",
+          "test_result": "To find the last two digits of \\(7^{100}\\), we need to compute \\(7^{100} \\mod 100\\).\n\nUsing Euler's theorem, which states that if \\(\\gcd(a, n) = 1\\), then \\(a^{\\phi(n)} \\equiv 1 \\pmod{n}\\), we first find \\(\\phi(100)\\).\n\nThe prime factorization of 100 is \\(2^2 \\times 5^2\\). Therefore, \\(\\phi(100) = 100 \\times \\left(1 - \\frac{1}{2}\\right) \\times \\left(1 - \\frac{1}{5}\\right) = 100 \\times \\frac{1}{2} \\times \\frac{4}{5} = 40\\).\n\nSince \\(\\gcd(7, 100) = 1\\), Euler's theorem gives us:\n\\[\n7^{40} \\equiv 1 \\pmod{100}\n\\]\n\nWe need \\(7^{100} \\mod 100\\). Notice that:\n\\[\n7^{100} = (7^{40})^2 \\times 7^{20}\n\\]\n\nUsing Euler's theorem:\n\\[\n7^{40} \\equiv 1 \\pmod{100}\n\\]\n\nThus:\n\\[\n(7^{40})^2 \\equiv 1^2 \\equiv 1 \\pmod{100}\n\\]\n\nSo:\n\\[\n7^{100} \\equiv 7^{20} \\pmod{100}\n\\]\n\nNow, we need to compute \\(7^{20} \\mod 100\\). We can use successive squaring:\n\nFirst, compute \\(7^2\\):\n\\[\n7^2 = 49\n\\]\n\nNext, compute \\(7^4\\):\n\\[\n7^4 = (7^2)^2 = 49^2 = 2401 \\equiv 1 \\pmod{100}\n\\]\n\nSince \\(7^4 \\equiv 1 \\pmod{100}\\), it follows that:\n\\[\n7^{20} = (7^4)^5 \\equiv 1^5 \\equiv 1 \\pmod{100}\n\\]\n\nThus:\n\\[\n7^{100} \\equiv 7^{20} \\equiv 1 \\pmod{100}\n\\]\n\nThe last two digits of \\(7^{100}\\) are \\(\\boxed{1}\\).",
+          "response_time_seconds": 6.905
+        }
+      ],
+      "validations": [],
+      "winner": null
+    }
+  ]
+}
