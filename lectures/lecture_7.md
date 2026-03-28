@@ -134,3 +134,15 @@ You have a model trained for general medicine and you want to fine-tune it for s
 
 You monitor which parameters are used the most when running through the general medicine dataset, and then you freeze those parameters during fine-tuning for the specific field. This way you prevent the model from forgetting the general medicine knowledge while learning the specific field.
 This way you try to retrain information.
+
+
+| Concept                 | What it Controls           | Options / Labels  | Meaning                                              | Trade-off                                         |
+| ----------------------- | -------------------------- | ----------------- | ---------------------------------------------------- | ------------------------------------------------- |
+| **Bit-width (QX)**      | Precision per weight       | Q4, Q5, Q6, Q8    | Number of bits used to store each weight             | Lower = smaller & faster, higher = better quality |
+| **Quantization Method** | How values are compressed  | Linear, K, Log    | Strategy for mapping real values to low-bit values   | Smarter methods preserve more accuracy            |
+| **K-Quant (`_K`)**      | Block-wise optimization    | Q4_K, Q5_K, etc.  | Uses grouped scaling for better accuracy             | Slightly more compute, much better quality        |
+| **Variant Size**        | Compression aggressiveness | `_S`, `_M`, `_L`  | Small / Medium / Large variants                      | S = smallest, L = best quality                    |
+| **Legacy Variant**      | Older format               | `_0` (e.g., Q8_0) | Simpler quantization scheme                          | Worse than modern K variants                      |
+| **Log Quantization**    | Value distribution         | (rarely labeled)  | Uses exponential spacing instead of linear           | Better for tiny values, harder to implement       |
+| **LoRA**                | Fine-tuning method         | LoRA adapters     | Adds small trainable matrices on top of frozen model | Very efficient training                           |
+| **QLoRA**               | Combined method            | QLoRA             | LoRA applied on quantized model                      | Extremely low memory training                     |
