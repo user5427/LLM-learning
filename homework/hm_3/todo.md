@@ -49,3 +49,12 @@ To receive full credit, please follow the instructions precisely. Use Python for
  8. **During evaluation**, you will be asked to write code related to the homework. 
 **Note**: If you used all deepinfra credits, register using new email account to get more free credit.
  
+
+
+
+things i need
+scheck that display function
++ size print
+tests various llm quantizations
+
++ llm help With ctrl + d
